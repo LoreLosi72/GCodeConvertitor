@@ -1,0 +1,11 @@
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\bin\Debug\Elaborato-EdS-2021.exe.config
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\bin\Debug\Elaborato-EdS-2021.exe
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\bin\Debug\Elaborato-EdS-2021.pdb
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.csprojAssemblyReference.cache
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato_EdS_2021.FormMain.resources
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato_EdS_2021.Properties.Resources.resources
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.csproj.GenerateResource.cache
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.csproj.CoreCompileInputs.cache
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.exe
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.pdb
+C:\Users\loren\Desktop\Elaborato-EdS-2021\Elaborato-EdS-2021\obj\Debug\Elaborato_EdS_2021.FormConvertImg.resources
