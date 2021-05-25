@@ -443,5 +443,103 @@ namespace Elaborato_EdS_2021
         {
             Close();
         }
+
+        private void VisualOriginalebutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        string line;
+        Int32 SZ; // se utilizzare S o Z
+        float coordinataX; // X
+        float coordinataY; // Y
+        float lastX; // ultima coordinata X per confrontarla
+        float lastY; // ultima coordinata Y per confrontarla
+        Int32 lastSZ; // ultimo valore S per confrontarlo
+        string coordinataXstr; //formato stringa della X
+        string coordinataYstr; //formato stringa della Y
+        char SZchar; //formato carattere S o Z
+        string SZstr; //formato stringa S
+        private void GCODEbutton_Click(object sender, EventArgs e) //Genera il file GCODE dell'immagine con il GCODE
+        {
+            if (ImgRev == null) return; //se non cè l'immagine non fa niente
+            float altezza = Convert.ToSingle(AltezzatextBox2.Text, CultureInfo.InvariantCulture.NumberFormat); //altezza in input dall'utente per controllare se il parametro è valido
+            float larghezza = Convert.ToSingle(LarghezzatextBox.Text, CultureInfo.InvariantCulture.NumberFormat); //larghezza in input per controllare se è valida
+            float risoluzione = Convert.ToSingle(RisoluzionetextBox3.Text, CultureInfo.InvariantCulture.NumberFormat); //risoluzione in input per controllare se è valida
+        
+            if((ImgRev.Width<1) | (ImgRev.Height<1) | (larghezza<1) | (altezza<1) | (risoluzione < 1)) //controlla se i valori altezza, larghezza e risoluzione dell'immagine sono validi per poter generare GCODE
+            {
+                MessageBox.Show("Controlla Altezza, Larghezza e Risoluzione.", "valori non validi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (Convert.ToInt32(FeedRatetextBox.Text) < 1) //controlla se il valore FeedRate è valido
+            {
+                MessageBox.Show("Controlla il valore FeedRate", "valore non valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel) return;
+        
+        
+        }
+
+        private void GeneraLineaGCODE() //genera la linea di Gcode
+        {
+            line = "";
+
+            if(coordinataX != lastX) // aggiunge la coordinata X alla linea se è diversa dalla coordinata X precedente
+            {
+                coordinataXstr = string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0.0.###", coordinataX);
+                line += 'X' + coordinataXstr;
+            }
+            if (coordinataY != lastY) // aggiunge la coordinata Y alla linea se è diversa dalla coordinata Y precedente
+            {
+                coordinataYstr = string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0.0.###", coordinataX);
+                line += 'Y' + coordinataYstr;
+            }
+            if (SZ != lastSZ) // aggiunge valore power (potenza) alla linea se è differente dal valore precedente
+            {
+                SZstr = SZchar + Convert.ToString(SZ);
+                line += SZstr;
+            }
+
+            Int32 linea; //pixels dell'immagine della parte superiore ed inferiore 
+            Int32 colonna; //pixels dell'immagine della parte sinistra e destra
+
+            StatotoolStripStatusLabel.Text = "Generazione del file contenente il GCODE....";
+            Refresh();
+            List<string> LineeFile = new List<string>(); //lista linee file GCODE
+            if (SradioButton1.Checked) SZchar = 'S'; //S o Z comando power
+            else SZchar = 'Z';
+
+            /////////////////////////////////////
+            ///INIZIO SCRITTURA GCODE SU FILE///
+            ///////////////////////////////////
+
+            line = "M5\r"; //comando che ci permette di assicurarsi che il Laser è spento. Mandrino spento
+            LineeFile.Add(line);
+
+            lastX = -1; //reset delle ultime posizioni X, Y , S o Z
+            lastY = -1;
+            lastSZ = -1;
+
+            line = "G90\r"; //comando che ci permette di utilizzare coordinate assolute 
+            LineeFile.Add(line);
+
+            line = "G21\r"; //comando che imposta l'unita di misura in Millimetri
+            //line = "G20\r"; se si volesse l'unita di misura in Pollici
+
+            line = "F" + FeedRatetextBox.Text + "\r"; //comando che imposta la velocità di avanzamento mm/min
+            LineeFile.Add(line);
+
+            Int32 pixelTot = ImgRev.Height * ImgRev.Width;
+            Int32 pixelBruciati = 0; //pixel scoloriti
+
+            //Generazione GCODE per scanning orizzontale
+
+            if(IncisionecomboBox.Text == "scansione orizzontale")
+            {
+
+            }
+        }
     }
 }

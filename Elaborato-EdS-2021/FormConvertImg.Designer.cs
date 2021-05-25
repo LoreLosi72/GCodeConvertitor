@@ -121,7 +121,7 @@ namespace Elaborato_EdS_2021
             // 
             this.FileApritoolStripMenuItem.BackColor = System.Drawing.Color.DarkOrange;
             this.FileApritoolStripMenuItem.Name = "FileApritoolStripMenuItem";
-            this.FileApritoolStripMenuItem.Size = new System.Drawing.Size(180, 30);
+            this.FileApritoolStripMenuItem.Size = new System.Drawing.Size(149, 30);
             this.FileApritoolStripMenuItem.Text = "Apri File";
             this.FileApritoolStripMenuItem.Click += new System.EventHandler(this.FileApritoolStripMenuItem_Click);
             // 
@@ -410,6 +410,7 @@ namespace Elaborato_EdS_2021
             this.VisualOriginalebutton.TabIndex = 0;
             this.VisualOriginalebutton.Text = "Visualizza Immagine Originale";
             this.VisualOriginalebutton.UseVisualStyleBackColor = false;
+            this.VisualOriginalebutton.Click += new System.EventHandler(this.VisualOriginalebutton_Click);
             this.VisualOriginalebutton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VisualOriginalebutton_MouseDown);
             this.VisualOriginalebutton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.VisualOriginalebutton_MouseUp);
             // 
@@ -437,6 +438,7 @@ namespace Elaborato_EdS_2021
             this.GCODEbutton.TabIndex = 7;
             this.GCODEbutton.Text = "Genera File";
             this.GCODEbutton.UseVisualStyleBackColor = false;
+            this.GCODEbutton.Click += new System.EventHandler(this.GCODEbutton_Click);
             // 
             // groupBox5
             // 
@@ -532,6 +534,7 @@ namespace Elaborato_EdS_2021
             this.FeedRatetextBox.BackColor = System.Drawing.Color.Orange;
             this.FeedRatetextBox.Location = new System.Drawing.Point(22, 44);
             this.FeedRatetextBox.Name = "FeedRatetextBox";
+            this.FeedRatetextBox.ReadOnly = true;
             this.FeedRatetextBox.Size = new System.Drawing.Size(105, 33);
             this.FeedRatetextBox.TabIndex = 2;
             this.FeedRatetextBox.Text = "1000";
@@ -555,6 +558,7 @@ namespace Elaborato_EdS_2021
             this.MaxPowertextBox.BackColor = System.Drawing.Color.Orange;
             this.MaxPowertextBox.Location = new System.Drawing.Point(138, 91);
             this.MaxPowertextBox.Name = "MaxPowertextBox";
+            this.MaxPowertextBox.ReadOnly = true;
             this.MaxPowertextBox.Size = new System.Drawing.Size(44, 33);
             this.MaxPowertextBox.TabIndex = 3;
             this.MaxPowertextBox.Text = "255";
@@ -565,6 +569,7 @@ namespace Elaborato_EdS_2021
             this.MinPowertextBox.BackColor = System.Drawing.Color.Orange;
             this.MinPowertextBox.Location = new System.Drawing.Point(138, 39);
             this.MinPowertextBox.Name = "MinPowertextBox";
+            this.MinPowertextBox.ReadOnly = true;
             this.MinPowertextBox.Size = new System.Drawing.Size(44, 33);
             this.MinPowertextBox.TabIndex = 2;
             this.MinPowertextBox.Text = "0";
