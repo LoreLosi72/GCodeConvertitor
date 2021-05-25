@@ -60,6 +60,7 @@ namespace Elaborato_EdS_2021
             this.GCodetabPage1 = new System.Windows.Forms.TabPage();
             this.GCODEbutton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.IncisioneBordocheckBox1 = new System.Windows.Forms.CheckBox();
             this.IncisionecomboBox = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ZradioButton2 = new System.Windows.Forms.RadioButton();
@@ -74,7 +75,6 @@ namespace Elaborato_EdS_2021
             this.label6 = new System.Windows.Forms.Label();
             this.ImgpictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.IncisioneBordocheckBox1 = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
@@ -121,8 +121,9 @@ namespace Elaborato_EdS_2021
             // 
             this.FileApritoolStripMenuItem.BackColor = System.Drawing.Color.DarkOrange;
             this.FileApritoolStripMenuItem.Name = "FileApritoolStripMenuItem";
-            this.FileApritoolStripMenuItem.Size = new System.Drawing.Size(149, 30);
+            this.FileApritoolStripMenuItem.Size = new System.Drawing.Size(180, 30);
             this.FileApritoolStripMenuItem.Text = "Apri File";
+            this.FileApritoolStripMenuItem.Click += new System.EventHandler(this.FileApritoolStripMenuItem_Click);
             // 
             // VisualtoolStripMenuItem
             // 
@@ -142,7 +143,7 @@ namespace Elaborato_EdS_2021
             this.VisualZoomtoolStripMenuItem1.CheckOnClick = true;
             this.VisualZoomtoolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.VisualZoomtoolStripMenuItem1.Name = "VisualZoomtoolStripMenuItem1";
-            this.VisualZoomtoolStripMenuItem1.Size = new System.Drawing.Size(180, 30);
+            this.VisualZoomtoolStripMenuItem1.Size = new System.Drawing.Size(172, 30);
             this.VisualZoomtoolStripMenuItem1.Text = "AutoZoom";
             this.VisualZoomtoolStripMenuItem1.Click += new System.EventHandler(this.VisualZoomtoolStripMenuItem1_Click);
             // 
@@ -152,6 +153,7 @@ namespace Elaborato_EdS_2021
             this.EscitoolStripMenuItem.Name = "EscitoolStripMenuItem";
             this.EscitoolStripMenuItem.Size = new System.Drawing.Size(55, 29);
             this.EscitoolStripMenuItem.Text = "Esci";
+            this.EscitoolStripMenuItem.Click += new System.EventHandler(this.EscitoolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -270,6 +272,7 @@ namespace Elaborato_EdS_2021
             this.RatiocheckBox.TabIndex = 17;
             this.RatiocheckBox.Text = "Ratio";
             this.RatiocheckBox.UseVisualStyleBackColor = true;
+            this.RatiocheckBox.CheckedChanged += new System.EventHandler(this.RatiocheckBox_CheckedChanged);
             // 
             // RisoluzionetextBox3
             // 
@@ -280,6 +283,9 @@ namespace Elaborato_EdS_2021
             this.RisoluzionetextBox3.TabIndex = 16;
             this.RisoluzionetextBox3.Text = "0.18";
             this.RisoluzionetextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RisoluzionetextBox3.Enter += new System.EventHandler(this.RisoluzionetextBox3_Enter);
+            this.RisoluzionetextBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RisoluzionetextBox3_KeyPress);
+            this.RisoluzionetextBox3.Leave += new System.EventHandler(this.RisoluzionetextBox3_Leave);
             // 
             // AltezzatextBox2
             // 
@@ -290,6 +296,9 @@ namespace Elaborato_EdS_2021
             this.AltezzatextBox2.TabIndex = 15;
             this.AltezzatextBox2.Text = "100";
             this.AltezzatextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.AltezzatextBox2.Enter += new System.EventHandler(this.AltezzatextBox2_Enter);
+            this.AltezzatextBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AltezzatextBox2_KeyPress);
+            this.AltezzatextBox2.Leave += new System.EventHandler(this.AltezzatextBox2_Leave);
             // 
             // LarghezzatextBox
             // 
@@ -300,6 +309,9 @@ namespace Elaborato_EdS_2021
             this.LarghezzatextBox.TabIndex = 11;
             this.LarghezzatextBox.Text = "60";
             this.LarghezzatextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.LarghezzatextBox.Enter += new System.EventHandler(this.LarghezzatextBox_Enter);
+            this.LarghezzatextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LarghezzatextBox_KeyPress);
+            this.LarghezzatextBox.Leave += new System.EventHandler(this.LarghezzatextBox_Leave);
             // 
             // label5
             // 
@@ -333,6 +345,7 @@ namespace Elaborato_EdS_2021
             this.LumtextBox.BackColor = System.Drawing.Color.Orange;
             this.LumtextBox.Location = new System.Drawing.Point(120, 17);
             this.LumtextBox.Name = "LumtextBox";
+            this.LumtextBox.ReadOnly = true;
             this.LumtextBox.Size = new System.Drawing.Size(44, 33);
             this.LumtextBox.TabIndex = 9;
             this.LumtextBox.Text = "0";
@@ -343,6 +356,7 @@ namespace Elaborato_EdS_2021
             this.ContrtextBox.BackColor = System.Drawing.Color.Orange;
             this.ContrtextBox.Location = new System.Drawing.Point(120, 124);
             this.ContrtextBox.Name = "ContrtextBox";
+            this.ContrtextBox.ReadOnly = true;
             this.ContrtextBox.Size = new System.Drawing.Size(44, 33);
             this.ContrtextBox.TabIndex = 8;
             this.ContrtextBox.Text = "0";
@@ -353,6 +367,7 @@ namespace Elaborato_EdS_2021
             this.GammatextBox.BackColor = System.Drawing.Color.Orange;
             this.GammatextBox.Location = new System.Drawing.Point(120, 238);
             this.GammatextBox.Name = "GammatextBox";
+            this.GammatextBox.ReadOnly = true;
             this.GammatextBox.Size = new System.Drawing.Size(44, 33);
             this.GammatextBox.TabIndex = 7;
             this.GammatextBox.Text = "1";
@@ -433,6 +448,18 @@ namespace Elaborato_EdS_2021
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Metodo di Incisione";
+            // 
+            // IncisioneBordocheckBox1
+            // 
+            this.IncisioneBordocheckBox1.AutoSize = true;
+            this.IncisioneBordocheckBox1.Checked = true;
+            this.IncisioneBordocheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IncisioneBordocheckBox1.Location = new System.Drawing.Point(251, 46);
+            this.IncisioneBordocheckBox1.Name = "IncisioneBordocheckBox1";
+            this.IncisioneBordocheckBox1.Size = new System.Drawing.Size(162, 29);
+            this.IncisioneBordocheckBox1.TabIndex = 1;
+            this.IncisioneBordocheckBox1.Text = "Incisione bordo";
+            this.IncisioneBordocheckBox1.UseVisualStyleBackColor = true;
             // 
             // IncisionecomboBox
             // 
@@ -565,7 +592,7 @@ namespace Elaborato_EdS_2021
             // 
             this.ImgpictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ImgpictureBox1.InitialImage = null;
-            this.ImgpictureBox1.Location = new System.Drawing.Point(-1, 0);
+            this.ImgpictureBox1.Location = new System.Drawing.Point(0, 0);
             this.ImgpictureBox1.Name = "ImgpictureBox1";
             this.ImgpictureBox1.Size = new System.Drawing.Size(795, 676);
             this.ImgpictureBox1.TabIndex = 4;
@@ -578,18 +605,6 @@ namespace Elaborato_EdS_2021
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(794, 676);
             this.panel1.TabIndex = 5;
-            // 
-            // IncisioneBordocheckBox1
-            // 
-            this.IncisioneBordocheckBox1.AutoSize = true;
-            this.IncisioneBordocheckBox1.Checked = true;
-            this.IncisioneBordocheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.IncisioneBordocheckBox1.Location = new System.Drawing.Point(251, 46);
-            this.IncisioneBordocheckBox1.Name = "IncisioneBordocheckBox1";
-            this.IncisioneBordocheckBox1.Size = new System.Drawing.Size(162, 29);
-            this.IncisioneBordocheckBox1.TabIndex = 1;
-            this.IncisioneBordocheckBox1.Text = "Incisione bordo";
-            this.IncisioneBordocheckBox1.UseVisualStyleBackColor = true;
             // 
             // openFileDialog1
             // 

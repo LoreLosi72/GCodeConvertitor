@@ -42,14 +42,15 @@ namespace Elaborato_EdS_2021
             this.btn_img.UseVisualStyleBackColor = true;
             this.btn_img.Click += new System.EventHandler(this.btn_img_Click);
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_img);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
 
         }

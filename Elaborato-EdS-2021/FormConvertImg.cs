@@ -25,6 +25,7 @@ namespace Elaborato_EdS_2021
             InitializeComponent();
         }
 
+        FormMain form_main;
         private void SaveSettings() //salviamo le impostazioni, all'avvio verrano presi i valori iniziali, quando l'utente modificherà i valori saranno modificate le impostazioni
         {
             try
@@ -84,6 +85,12 @@ namespace Elaborato_EdS_2021
                 ImgpictureBox1.Height = panel1.Height;
                 ImgpictureBox1.Top = 0;
                 ImgpictureBox1.Left = 0;
+            }
+            else
+            {
+                ImgpictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                if (ImgpictureBox1.Width > panel1.Width) ImgpictureBox1.Left = 0; else ImgpictureBox1.Left = (panel1.Width / 2) - (ImgpictureBox1.Width / 2);
+                if (ImgpictureBox1.Height > panel1.Height) ImgpictureBox1.Top = 0; else ImgpictureBox1.Top = (panel1.Height / 2) - (ImgpictureBox1.Height / 2);
             }
         }
 
@@ -248,6 +255,193 @@ namespace Elaborato_EdS_2021
             GammatextBox.Text = Convert.ToString(GammaTrackBar.Value);
             Refresh();
             userAdjust();
+        }
+
+        private void WidthChanged() // controlla se la nuova larghezza è stata confermata dall'utente e la processa
+        {
+            try
+            {
+                if (ImgRev == null) return; //se non c'è l'immagine la funzione non fa niente
+                float newValue = Convert.ToSingle(LarghezzatextBox.Text, CultureInfo.InvariantCulture.NumberFormat); //prende la larghezza inserita dall'utente in unput
+                if (newValue == UltimateValue) return; //se la larghezza in input è uguale alla larghezza corrente dell'immagine, la funzione non fa niente
+                UltimateValue = Convert.ToSingle(LarghezzatextBox.Text, CultureInfo.InvariantCulture.NumberFormat);
+                if (RatiocheckBox.Checked)
+                {
+                    LarghezzatextBox.Text = Convert.ToString((newValue / Ratio), CultureInfo.InvariantCulture.NumberFormat);
+                }
+                userAdjust();
+            }
+            catch
+            {
+                MessageBox.Show("Controlla la larghezza inserita", "valore non valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void HeightChanged() // controlla se la nuova altezza è stata confermata dall'utente e la processa
+        {
+            try
+            {
+                if (ImgRev == null) return; //se non c'è l'immagine la funzione non fa niente
+                float newValue = Convert.ToSingle(AltezzatextBox2, CultureInfo.InvariantCulture.NumberFormat); //prende l'altezza inserita dall'utente in unput
+                if (newValue == UltimateValue) return; //se l'altezza in input è uguale all'altezza corrente dell'immagine, la funzione non fa niente
+                UltimateValue = Convert.ToSingle(AltezzatextBox2, CultureInfo.InvariantCulture.NumberFormat);
+                if (RatiocheckBox.Checked)
+                {
+                    LarghezzatextBox.Text = Convert.ToString((newValue * Ratio), CultureInfo.InvariantCulture.NumberFormat);
+                }
+                userAdjust();
+            }
+            catch
+            {
+                MessageBox.Show("Controlla l'altezza inserita", "valore non valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ResolutionChanged() // controlla se la nuova risoluzione è stata confermata dall'utente e la processa
+        {
+            try
+            {
+                if (ImgRev == null) return; //se non c'è l'immagine la funzione non fa niente
+                float newValue = Convert.ToSingle(AltezzatextBox2, CultureInfo.InvariantCulture.NumberFormat); //prende la risoluzione inserita dall'utente in unput
+                if (newValue == UltimateValue) return; //se la risoluzione in input è uguale alla risoluzione corrente dell'immagine, la funzione non fa niente
+                UltimateValue = Convert.ToSingle(AltezzatextBox2, CultureInfo.InvariantCulture.NumberFormat);
+                if (RatiocheckBox.Checked)
+                {
+                    LarghezzatextBox.Text = Convert.ToString((newValue * Ratio), CultureInfo.InvariantCulture.NumberFormat);
+                }
+                userAdjust();
+            }
+            catch
+            {
+                MessageBox.Show("Controlla l'altezza inserita", "valore non valido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RatiocheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RatiocheckBox.Checked)
+            {
+                AltezzatextBox2.Text = Convert.ToString((Convert.ToSingle(LarghezzatextBox.Text, CultureInfo.InvariantCulture.NumberFormat)/Ratio),CultureInfo.InvariantCulture.NumberFormat); //inizializzazione dimensione Y
+                if (ImgRev == null) return; //se non c'è l'immagine non fa niente
+                userAdjust();
+            }
+        }
+
+        private void LarghezzatextBox_KeyPress(object sender, KeyPressEventArgs e) //Si verifica quando si preme un tasto carattere, la barra spaziatrice o il tasto backspace mentre il controllo ha lo stato attivo.
+        {
+            if (!checkDigitFloat(e.KeyChar)) //controlla il carattere inserito attraverso la funzione di controllo per i float creata in precedenza
+            {
+                e.Handled = true; //ferma il carattere inserito perchè non valido
+                return;
+            }
+
+            if (e.KeyChar == Convert.ToChar(13))
+            {
+                WidthChanged();
+            }
+        }
+
+        private void AltezzatextBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!checkDigitFloat(e.KeyChar)) //controlla il carattere inserito attraverso la funzione di controllo per i float creata in precedenza
+            {
+                e.Handled = true; //ferma il carattere inserito perchè non valido
+                return;
+            }
+
+            if (e.KeyChar == Convert.ToChar(13))
+            {
+                HeightChanged();
+            }
+        }
+
+        private void RisoluzionetextBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!checkDigitFloat(e.KeyChar)) //controlla il carattere inserito attraverso la funzione di controllo per i float creata in precedenza
+            {
+                e.Handled = true; //ferma il carattere inserito perchè non valido
+                return;
+            }
+
+            if (e.KeyChar == Convert.ToChar(13))
+            {
+                ResolutionChanged();
+            }
+        }
+
+        private void LarghezzatextBox_Leave(object sender, EventArgs e) //si verifica quando lo stato attivo esce dall'area di controllo
+        {
+            WidthChanged();
+        }
+
+        private void AltezzatextBox2_Leave(object sender, EventArgs e) 
+        {
+            HeightChanged();
+        }
+
+        private void RisoluzionetextBox3_Leave(object sender, EventArgs e) //risoluzione
+        {
+            ResolutionChanged(); 
+        }
+
+        private void LarghezzatextBox_Enter(object sender, EventArgs e) //si verifica quando si entra nel'area di controllo
+        {
+            try
+            {
+                UltimateValue = Convert.ToSingle(LarghezzatextBox.Text, CultureInfo.InvariantCulture.NumberFormat);
+            }
+            catch { }
+        }
+
+        private void AltezzatextBox2_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                UltimateValue = Convert.ToSingle(AltezzatextBox2.Text, CultureInfo.InvariantCulture.NumberFormat);
+            }
+            catch { }
+        }
+
+        private void RisoluzionetextBox3_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                UltimateValue = Convert.ToSingle(RisoluzionetextBox3.Text, CultureInfo.InvariantCulture.NumberFormat);
+            }
+            catch { }
+        }
+
+        private void FileApritoolStripMenuItem_Click(object sender, EventArgs e) // Apre il fle (immagine), salva l'immagine con la scala di grigi dall'immagine originale e salva il ratio originale in Ratio
+        {
+            try
+            {
+                if (openFileDialog1.ShowDialog() == DialogResult.Cancel) return; //se l'immagine non viene inserita la funzione non fa niente
+                if (!File.Exists(openFileDialog1.FileName)) return;
+                StatotoolStripStatusLabel.Text = "Apertura del file in corso....";
+                Refresh();
+                LuminositàTrackBar.Value = 0;
+                ContrastoTrackBar.Value = 0;
+                GammaTrackBar.Value = 100;
+                LumtextBox.Text = Convert.ToString(LuminositàTrackBar.Value);
+                ContrtextBox.Text = Convert.ToString(ContrastoTrackBar.Value);
+                GammatextBox.Text = Convert.ToString(GammaTrackBar.Value / 100.0f);
+                ImgOrig = new Bitmap(Image.FromFile(openFileDialog1.FileName)); //l'immagine originale diventa l'immagine appena inserita dall'utente
+                ImgOrig = ScalaGrigiImg(ImgOrig); //l'immagine originale la trasformo in un'immagine basata sulla scala di grigi attraverso la funzione con la matrice creata in precedenza
+                ImgRev = new Bitmap(ImgOrig); //l'immagine originale modifica diventa la nuova immagine revisionata
+                Ratio = (ImgOrig.Width + 0.0f) / ImgOrig.Height; //salva il ratio dell'immagine così è pronto se ne avremmo bisogno
+                if (RatiocheckBox.Checked) AltezzatextBox2.Text = Convert.ToString((Convert.ToSingle(LarghezzatextBox.Text) / Ratio), CultureInfo.InvariantCulture.NumberFormat);
+                userAdjust();
+                StatotoolStripStatusLabel.Text = "Immagine Pronta";
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Errore nell'apertura del file:  " + err.Message, "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EscitoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

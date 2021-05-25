@@ -21,8 +21,15 @@ namespace Elaborato_EdS_2021
         
         private void btn_img_Click(object sender, EventArgs e)
         {
+            
             form_img = new FormConvertImg();
             form_img.ShowDialog();
+
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
