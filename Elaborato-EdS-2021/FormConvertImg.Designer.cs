@@ -33,61 +33,65 @@ namespace Elaborato_EdS_2021
             this.FiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileApritoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.VisualtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VisualZoomtoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.EscitoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatotoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ImgtabPage = new System.Windows.Forms.TabPage();
-            this.GCodetabPage1 = new System.Windows.Forms.TabPage();
-            this.VisualOriginalebutton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.GammatextBox = new System.Windows.Forms.TextBox();
-            this.ContrtextBox = new System.Windows.Forms.TextBox();
-            this.LumtextBox = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Larglabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.LarghezzatextBox = new System.Windows.Forms.TextBox();
-            this.AltezzatextBox2 = new System.Windows.Forms.TextBox();
-            this.RisoluzionetextBox3 = new System.Windows.Forms.TextBox();
-            this.RatiocheckBox = new System.Windows.Forms.CheckBox();
-            this.VisualZoomtoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.GammaTrackBar = new System.Windows.Forms.TrackBar();
-            this.ContrastoTrackBar = new System.Windows.Forms.TrackBar();
             this.LuminositàTrackBar = new System.Windows.Forms.TrackBar();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.MinPowertextBox = new System.Windows.Forms.TextBox();
-            this.MaxPowertextBox = new System.Windows.Forms.TextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.FeedRatetextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.SradioButton1 = new System.Windows.Forms.RadioButton();
-            this.ZradioButton2 = new System.Windows.Forms.RadioButton();
+            this.ContrastoTrackBar = new System.Windows.Forms.TrackBar();
+            this.GammaTrackBar = new System.Windows.Forms.TrackBar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RatiocheckBox = new System.Windows.Forms.CheckBox();
+            this.RisoluzionetextBox3 = new System.Windows.Forms.TextBox();
+            this.AltezzatextBox2 = new System.Windows.Forms.TextBox();
+            this.LarghezzatextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.Larglabel = new System.Windows.Forms.Label();
+            this.LumtextBox = new System.Windows.Forms.TextBox();
+            this.ContrtextBox = new System.Windows.Forms.TextBox();
+            this.GammatextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.VisualOriginalebutton = new System.Windows.Forms.Button();
+            this.GCodetabPage1 = new System.Windows.Forms.TabPage();
+            this.GCODEbutton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.IncisionecomboBox = new System.Windows.Forms.ComboBox();
-            this.IncisioneBordocheckBox1 = new System.Windows.Forms.CheckBox();
-            this.GCODEbutton = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.ZradioButton2 = new System.Windows.Forms.RadioButton();
+            this.SradioButton1 = new System.Windows.Forms.RadioButton();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.FeedRatetextBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.MaxPowertextBox = new System.Windows.Forms.TextBox();
+            this.MinPowertextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.ImgpictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.IncisioneBordocheckBox1 = new System.Windows.Forms.CheckBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ImgtabPage.SuspendLayout();
-            this.GCodetabPage1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GammaTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContrastoTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LuminositàTrackBar)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastoTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GammaTrackBar)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.GCodetabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgpictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -122,12 +126,25 @@ namespace Elaborato_EdS_2021
             // 
             // VisualtoolStripMenuItem
             // 
+            this.VisualtoolStripMenuItem.Checked = true;
+            this.VisualtoolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.VisualtoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.VisualZoomtoolStripMenuItem1});
             this.VisualtoolStripMenuItem.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.VisualtoolStripMenuItem.Name = "VisualtoolStripMenuItem";
             this.VisualtoolStripMenuItem.Size = new System.Drawing.Size(104, 29);
             this.VisualtoolStripMenuItem.Text = "Visualizza";
+            // 
+            // VisualZoomtoolStripMenuItem1
+            // 
+            this.VisualZoomtoolStripMenuItem1.BackColor = System.Drawing.Color.DarkOrange;
+            this.VisualZoomtoolStripMenuItem1.Checked = true;
+            this.VisualZoomtoolStripMenuItem1.CheckOnClick = true;
+            this.VisualZoomtoolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.VisualZoomtoolStripMenuItem1.Name = "VisualZoomtoolStripMenuItem1";
+            this.VisualZoomtoolStripMenuItem1.Size = new System.Drawing.Size(180, 30);
+            this.VisualZoomtoolStripMenuItem1.Text = "AutoZoom";
+            this.VisualZoomtoolStripMenuItem1.Click += new System.EventHandler(this.VisualZoomtoolStripMenuItem1_Click);
             // 
             // EscitoolStripMenuItem
             // 
@@ -186,88 +203,45 @@ namespace Elaborato_EdS_2021
             this.ImgtabPage.TabIndex = 0;
             this.ImgtabPage.Text = "Immagine";
             // 
-            // GCodetabPage1
+            // LuminositàTrackBar
             // 
-            this.GCodetabPage1.BackColor = System.Drawing.Color.Orange;
-            this.GCodetabPage1.Controls.Add(this.GCODEbutton);
-            this.GCodetabPage1.Controls.Add(this.groupBox5);
-            this.GCodetabPage1.Controls.Add(this.groupBox4);
-            this.GCodetabPage1.Controls.Add(this.groupBox3);
-            this.GCodetabPage1.Controls.Add(this.groupBox2);
-            this.GCodetabPage1.Location = new System.Drawing.Point(4, 34);
-            this.GCodetabPage1.Name = "GCodetabPage1";
-            this.GCodetabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.GCodetabPage1.Size = new System.Drawing.Size(434, 638);
-            this.GCodetabPage1.TabIndex = 2;
-            this.GCodetabPage1.Text = "GCode";
+            this.LuminositàTrackBar.BackColor = System.Drawing.Color.Orange;
+            this.LuminositàTrackBar.Location = new System.Drawing.Point(6, 56);
+            this.LuminositàTrackBar.Maximum = 127;
+            this.LuminositàTrackBar.Minimum = -127;
+            this.LuminositàTrackBar.Name = "LuminositàTrackBar";
+            this.LuminositàTrackBar.Size = new System.Drawing.Size(422, 45);
+            this.LuminositàTrackBar.TabIndex = 23;
+            this.LuminositàTrackBar.TickFrequency = 10;
+            this.LuminositàTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.LuminositàTrackBar.Scroll += new System.EventHandler(this.LuminositàTrackBar_Scroll);
             // 
-            // VisualOriginalebutton
+            // ContrastoTrackBar
             // 
-            this.VisualOriginalebutton.BackColor = System.Drawing.Color.Orange;
-            this.VisualOriginalebutton.ForeColor = System.Drawing.Color.Black;
-            this.VisualOriginalebutton.Location = new System.Drawing.Point(80, 557);
-            this.VisualOriginalebutton.Name = "VisualOriginalebutton";
-            this.VisualOriginalebutton.Size = new System.Drawing.Size(237, 63);
-            this.VisualOriginalebutton.TabIndex = 0;
-            this.VisualOriginalebutton.Text = "Visualizza Immagine Originale";
-            this.VisualOriginalebutton.UseVisualStyleBackColor = false;
+            this.ContrastoTrackBar.BackColor = System.Drawing.Color.Orange;
+            this.ContrastoTrackBar.Location = new System.Drawing.Point(9, 177);
+            this.ContrastoTrackBar.Maximum = 127;
+            this.ContrastoTrackBar.Minimum = -127;
+            this.ContrastoTrackBar.Name = "ContrastoTrackBar";
+            this.ContrastoTrackBar.Size = new System.Drawing.Size(419, 45);
+            this.ContrastoTrackBar.TabIndex = 22;
+            this.ContrastoTrackBar.TickFrequency = 10;
+            this.ContrastoTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.ContrastoTrackBar.Scroll += new System.EventHandler(this.ContrastoTrackBar_Scroll);
             // 
-            // label1
+            // GammaTrackBar
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Luminosità:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(98, 25);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Contrasto:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 241);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 25);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Gamma:";
-            // 
-            // GammatextBox
-            // 
-            this.GammatextBox.BackColor = System.Drawing.Color.Orange;
-            this.GammatextBox.Location = new System.Drawing.Point(120, 238);
-            this.GammatextBox.Name = "GammatextBox";
-            this.GammatextBox.Size = new System.Drawing.Size(44, 33);
-            this.GammatextBox.TabIndex = 7;
-            this.GammatextBox.Text = "1";
-            this.GammatextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ContrtextBox
-            // 
-            this.ContrtextBox.BackColor = System.Drawing.Color.Orange;
-            this.ContrtextBox.Location = new System.Drawing.Point(120, 124);
-            this.ContrtextBox.Name = "ContrtextBox";
-            this.ContrtextBox.Size = new System.Drawing.Size(44, 33);
-            this.ContrtextBox.TabIndex = 8;
-            this.ContrtextBox.Text = "0";
-            this.ContrtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LumtextBox
-            // 
-            this.LumtextBox.BackColor = System.Drawing.Color.Orange;
-            this.LumtextBox.Location = new System.Drawing.Point(120, 17);
-            this.LumtextBox.Name = "LumtextBox";
-            this.LumtextBox.Size = new System.Drawing.Size(44, 33);
-            this.LumtextBox.TabIndex = 9;
-            this.LumtextBox.Text = "0";
-            this.LumtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.GammaTrackBar.BackColor = System.Drawing.Color.Orange;
+            this.GammaTrackBar.Location = new System.Drawing.Point(11, 289);
+            this.GammaTrackBar.Maximum = 500;
+            this.GammaTrackBar.Minimum = 1;
+            this.GammaTrackBar.Name = "GammaTrackBar";
+            this.GammaTrackBar.Size = new System.Drawing.Size(417, 45);
+            this.GammaTrackBar.TabIndex = 11;
+            this.GammaTrackBar.TickFrequency = 22;
+            this.GammaTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.GammaTrackBar.Value = 50;
+            this.GammaTrackBar.Scroll += new System.EventHandler(this.GammaTrackBar_Scroll);
             // 
             // groupBox1
             // 
@@ -285,52 +259,17 @@ namespace Elaborato_EdS_2021
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Output (mm)";
             // 
-            // Larglabel
+            // RatiocheckBox
             // 
-            this.Larglabel.AutoSize = true;
-            this.Larglabel.Location = new System.Drawing.Point(6, 42);
-            this.Larglabel.Name = "Larglabel";
-            this.Larglabel.Size = new System.Drawing.Size(102, 25);
-            this.Larglabel.TabIndex = 11;
-            this.Larglabel.Text = "Larghezza:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 87);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 25);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Altezza:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 135);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 25);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Risoluzione:";
-            // 
-            // LarghezzatextBox
-            // 
-            this.LarghezzatextBox.BackColor = System.Drawing.Color.Orange;
-            this.LarghezzatextBox.Location = new System.Drawing.Point(138, 39);
-            this.LarghezzatextBox.Name = "LarghezzatextBox";
-            this.LarghezzatextBox.Size = new System.Drawing.Size(44, 33);
-            this.LarghezzatextBox.TabIndex = 11;
-            this.LarghezzatextBox.Text = "60";
-            this.LarghezzatextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // AltezzatextBox2
-            // 
-            this.AltezzatextBox2.BackColor = System.Drawing.Color.Orange;
-            this.AltezzatextBox2.Location = new System.Drawing.Point(138, 87);
-            this.AltezzatextBox2.Name = "AltezzatextBox2";
-            this.AltezzatextBox2.Size = new System.Drawing.Size(44, 33);
-            this.AltezzatextBox2.TabIndex = 15;
-            this.AltezzatextBox2.Text = "100";
-            this.AltezzatextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.RatiocheckBox.AutoSize = true;
+            this.RatiocheckBox.Checked = true;
+            this.RatiocheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.RatiocheckBox.Location = new System.Drawing.Point(234, 41);
+            this.RatiocheckBox.Name = "RatiocheckBox";
+            this.RatiocheckBox.Size = new System.Drawing.Size(74, 29);
+            this.RatiocheckBox.TabIndex = 17;
+            this.RatiocheckBox.Text = "Ratio";
+            this.RatiocheckBox.UseVisualStyleBackColor = true;
             // 
             // RisoluzionetextBox3
             // 
@@ -342,174 +281,147 @@ namespace Elaborato_EdS_2021
             this.RisoluzionetextBox3.Text = "0.18";
             this.RisoluzionetextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // RatiocheckBox
+            // AltezzatextBox2
             // 
-            this.RatiocheckBox.AutoSize = true;
-            this.RatiocheckBox.Location = new System.Drawing.Point(234, 41);
-            this.RatiocheckBox.Name = "RatiocheckBox";
-            this.RatiocheckBox.Size = new System.Drawing.Size(74, 29);
-            this.RatiocheckBox.TabIndex = 17;
-            this.RatiocheckBox.Text = "Ratio";
-            this.RatiocheckBox.UseVisualStyleBackColor = true;
+            this.AltezzatextBox2.BackColor = System.Drawing.Color.Orange;
+            this.AltezzatextBox2.Location = new System.Drawing.Point(138, 87);
+            this.AltezzatextBox2.Name = "AltezzatextBox2";
+            this.AltezzatextBox2.Size = new System.Drawing.Size(44, 33);
+            this.AltezzatextBox2.TabIndex = 15;
+            this.AltezzatextBox2.Text = "100";
+            this.AltezzatextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // VisualZoomtoolStripMenuItem1
+            // LarghezzatextBox
             // 
-            this.VisualZoomtoolStripMenuItem1.BackColor = System.Drawing.Color.DarkOrange;
-            this.VisualZoomtoolStripMenuItem1.CheckOnClick = true;
-            this.VisualZoomtoolStripMenuItem1.Name = "VisualZoomtoolStripMenuItem1";
-            this.VisualZoomtoolStripMenuItem1.Size = new System.Drawing.Size(180, 30);
-            this.VisualZoomtoolStripMenuItem1.Text = "AutoZoom";
+            this.LarghezzatextBox.BackColor = System.Drawing.Color.Orange;
+            this.LarghezzatextBox.Location = new System.Drawing.Point(138, 39);
+            this.LarghezzatextBox.Name = "LarghezzatextBox";
+            this.LarghezzatextBox.Size = new System.Drawing.Size(44, 33);
+            this.LarghezzatextBox.TabIndex = 11;
+            this.LarghezzatextBox.Text = "60";
+            this.LarghezzatextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // GammaTrackBar
+            // label5
             // 
-            this.GammaTrackBar.BackColor = System.Drawing.Color.Orange;
-            this.GammaTrackBar.Location = new System.Drawing.Point(11, 289);
-            this.GammaTrackBar.Maximum = 500;
-            this.GammaTrackBar.Minimum = 1;
-            this.GammaTrackBar.Name = "GammaTrackBar";
-            this.GammaTrackBar.Size = new System.Drawing.Size(417, 45);
-            this.GammaTrackBar.TabIndex = 11;
-            this.GammaTrackBar.TickFrequency = 22;
-            this.GammaTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.GammaTrackBar.Value = 50;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 135);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 25);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Risoluzione:";
             // 
-            // ContrastoTrackBar
+            // label4
             // 
-            this.ContrastoTrackBar.BackColor = System.Drawing.Color.Orange;
-            this.ContrastoTrackBar.Location = new System.Drawing.Point(9, 177);
-            this.ContrastoTrackBar.Maximum = 127;
-            this.ContrastoTrackBar.Minimum = -127;
-            this.ContrastoTrackBar.Name = "ContrastoTrackBar";
-            this.ContrastoTrackBar.Size = new System.Drawing.Size(419, 45);
-            this.ContrastoTrackBar.TabIndex = 22;
-            this.ContrastoTrackBar.TickFrequency = 10;
-            this.ContrastoTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(77, 25);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Altezza:";
             // 
-            // LuminositàTrackBar
+            // Larglabel
             // 
-            this.LuminositàTrackBar.BackColor = System.Drawing.Color.Orange;
-            this.LuminositàTrackBar.Location = new System.Drawing.Point(6, 56);
-            this.LuminositàTrackBar.Maximum = 127;
-            this.LuminositàTrackBar.Minimum = -127;
-            this.LuminositàTrackBar.Name = "LuminositàTrackBar";
-            this.LuminositàTrackBar.Size = new System.Drawing.Size(422, 45);
-            this.LuminositàTrackBar.TabIndex = 23;
-            this.LuminositàTrackBar.TickFrequency = 10;
-            this.LuminositàTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.Larglabel.AutoSize = true;
+            this.Larglabel.Location = new System.Drawing.Point(6, 42);
+            this.Larglabel.Name = "Larglabel";
+            this.Larglabel.Size = new System.Drawing.Size(102, 25);
+            this.Larglabel.TabIndex = 11;
+            this.Larglabel.Text = "Larghezza:";
             // 
-            // groupBox2
+            // LumtextBox
             // 
-            this.groupBox2.Controls.Add(this.MaxPowertextBox);
-            this.groupBox2.Controls.Add(this.MinPowertextBox);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(9, 7);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(419, 150);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Profilo Laser";
+            this.LumtextBox.BackColor = System.Drawing.Color.Orange;
+            this.LumtextBox.Location = new System.Drawing.Point(120, 17);
+            this.LumtextBox.Name = "LumtextBox";
+            this.LumtextBox.Size = new System.Drawing.Size(44, 33);
+            this.LumtextBox.TabIndex = 9;
+            this.LumtextBox.Text = "0";
+            this.LumtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label6
+            // ContrtextBox
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Min Power:";
+            this.ContrtextBox.BackColor = System.Drawing.Color.Orange;
+            this.ContrtextBox.Location = new System.Drawing.Point(120, 124);
+            this.ContrtextBox.Name = "ContrtextBox";
+            this.ContrtextBox.Size = new System.Drawing.Size(44, 33);
+            this.ContrtextBox.TabIndex = 8;
+            this.ContrtextBox.Text = "0";
+            this.ContrtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label7
+            // GammatextBox
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 91);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(110, 25);
-            this.label7.TabIndex = 1;
-            this.label7.Text = "Max Power:";
+            this.GammatextBox.BackColor = System.Drawing.Color.Orange;
+            this.GammatextBox.Location = new System.Drawing.Point(120, 238);
+            this.GammatextBox.Name = "GammatextBox";
+            this.GammatextBox.Size = new System.Drawing.Size(44, 33);
+            this.GammatextBox.TabIndex = 7;
+            this.GammatextBox.Text = "1";
+            this.GammatextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // MinPowertextBox
+            // label3
             // 
-            this.MinPowertextBox.BackColor = System.Drawing.Color.Orange;
-            this.MinPowertextBox.Location = new System.Drawing.Point(138, 39);
-            this.MinPowertextBox.Name = "MinPowertextBox";
-            this.MinPowertextBox.Size = new System.Drawing.Size(44, 33);
-            this.MinPowertextBox.TabIndex = 2;
-            this.MinPowertextBox.Text = "0";
-            this.MinPowertextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 241);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(81, 25);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Gamma:";
             // 
-            // MaxPowertextBox
+            // label2
             // 
-            this.MaxPowertextBox.BackColor = System.Drawing.Color.Orange;
-            this.MaxPowertextBox.Location = new System.Drawing.Point(138, 91);
-            this.MaxPowertextBox.Name = "MaxPowertextBox";
-            this.MaxPowertextBox.Size = new System.Drawing.Size(44, 33);
-            this.MaxPowertextBox.TabIndex = 3;
-            this.MaxPowertextBox.Text = "255";
-            this.MaxPowertextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(98, 25);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Contrasto:";
             // 
-            // groupBox3
+            // label1
             // 
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.FeedRatetextBox);
-            this.groupBox3.Location = new System.Drawing.Point(9, 172);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(419, 94);
-            this.groupBox3.TabIndex = 4;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "FeedRate (Velocità Avanzamento)";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 25);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Luminosità:";
             // 
-            // FeedRatetextBox
+            // VisualOriginalebutton
             // 
-            this.FeedRatetextBox.BackColor = System.Drawing.Color.Orange;
-            this.FeedRatetextBox.Location = new System.Drawing.Point(22, 44);
-            this.FeedRatetextBox.Name = "FeedRatetextBox";
-            this.FeedRatetextBox.Size = new System.Drawing.Size(44, 33);
-            this.FeedRatetextBox.TabIndex = 2;
-            this.FeedRatetextBox.Text = "0";
-            this.FeedRatetextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.VisualOriginalebutton.BackColor = System.Drawing.Color.Orange;
+            this.VisualOriginalebutton.ForeColor = System.Drawing.Color.Black;
+            this.VisualOriginalebutton.Location = new System.Drawing.Point(80, 557);
+            this.VisualOriginalebutton.Name = "VisualOriginalebutton";
+            this.VisualOriginalebutton.Size = new System.Drawing.Size(237, 63);
+            this.VisualOriginalebutton.TabIndex = 0;
+            this.VisualOriginalebutton.Text = "Visualizza Immagine Originale";
+            this.VisualOriginalebutton.UseVisualStyleBackColor = false;
+            this.VisualOriginalebutton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VisualOriginalebutton_MouseDown);
+            this.VisualOriginalebutton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.VisualOriginalebutton_MouseUp);
             // 
-            // label8
+            // GCodetabPage1
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(72, 47);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 25);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "mm/min";
+            this.GCodetabPage1.BackColor = System.Drawing.Color.Orange;
+            this.GCodetabPage1.Controls.Add(this.GCODEbutton);
+            this.GCodetabPage1.Controls.Add(this.groupBox5);
+            this.GCodetabPage1.Controls.Add(this.groupBox4);
+            this.GCodetabPage1.Controls.Add(this.groupBox3);
+            this.GCodetabPage1.Controls.Add(this.groupBox2);
+            this.GCodetabPage1.Location = new System.Drawing.Point(4, 34);
+            this.GCodetabPage1.Name = "GCodetabPage1";
+            this.GCodetabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.GCodetabPage1.Size = new System.Drawing.Size(434, 638);
+            this.GCodetabPage1.TabIndex = 2;
+            this.GCodetabPage1.Text = "GCode";
             // 
-            // groupBox4
+            // GCODEbutton
             // 
-            this.groupBox4.Controls.Add(this.ZradioButton2);
-            this.groupBox4.Controls.Add(this.SradioButton1);
-            this.groupBox4.Location = new System.Drawing.Point(9, 285);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(419, 93);
-            this.groupBox4.TabIndex = 5;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Comando Power Laser";
-            // 
-            // SradioButton1
-            // 
-            this.SradioButton1.AutoSize = true;
-            this.SradioButton1.Location = new System.Drawing.Point(22, 44);
-            this.SradioButton1.Name = "SradioButton1";
-            this.SradioButton1.Size = new System.Drawing.Size(40, 29);
-            this.SradioButton1.TabIndex = 0;
-            this.SradioButton1.TabStop = true;
-            this.SradioButton1.Text = "S";
-            this.SradioButton1.UseVisualStyleBackColor = true;
-            // 
-            // ZradioButton2
-            // 
-            this.ZradioButton2.AutoSize = true;
-            this.ZradioButton2.Location = new System.Drawing.Point(86, 44);
-            this.ZradioButton2.Name = "ZradioButton2";
-            this.ZradioButton2.Size = new System.Drawing.Size(41, 29);
-            this.ZradioButton2.TabIndex = 1;
-            this.ZradioButton2.TabStop = true;
-            this.ZradioButton2.Text = "Z";
-            this.ZradioButton2.UseVisualStyleBackColor = true;
+            this.GCODEbutton.BackColor = System.Drawing.Color.Orange;
+            this.GCODEbutton.Location = new System.Drawing.Point(95, 524);
+            this.GCODEbutton.Name = "GCODEbutton";
+            this.GCODEbutton.Size = new System.Drawing.Size(201, 63);
+            this.GCODEbutton.TabIndex = 7;
+            this.GCODEbutton.Text = "Genera File";
+            this.GCODEbutton.UseVisualStyleBackColor = false;
             // 
             // groupBox5
             // 
@@ -517,7 +429,7 @@ namespace Elaborato_EdS_2021
             this.groupBox5.Controls.Add(this.IncisionecomboBox);
             this.groupBox5.Location = new System.Drawing.Point(9, 396);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(419, 147);
+            this.groupBox5.Size = new System.Drawing.Size(419, 94);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Metodo di Incisione";
@@ -535,35 +447,153 @@ namespace Elaborato_EdS_2021
             this.IncisionecomboBox.TabIndex = 0;
             this.IncisionecomboBox.Text = "scansione orizzontale";
             // 
-            // IncisioneBordocheckBox1
+            // groupBox4
             // 
-            this.IncisioneBordocheckBox1.AutoSize = true;
-            this.IncisioneBordocheckBox1.Location = new System.Drawing.Point(22, 95);
-            this.IncisioneBordocheckBox1.Name = "IncisioneBordocheckBox1";
-            this.IncisioneBordocheckBox1.Size = new System.Drawing.Size(212, 29);
-            this.IncisioneBordocheckBox1.TabIndex = 1;
-            this.IncisioneBordocheckBox1.Text = "Incisione Linea Bordo";
-            this.IncisioneBordocheckBox1.UseVisualStyleBackColor = true;
+            this.groupBox4.Controls.Add(this.ZradioButton2);
+            this.groupBox4.Controls.Add(this.SradioButton1);
+            this.groupBox4.Location = new System.Drawing.Point(9, 285);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(419, 93);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Comando Power Laser";
             // 
-            // GCODEbutton
+            // ZradioButton2
             // 
-            this.GCODEbutton.BackColor = System.Drawing.Color.Orange;
-            this.GCODEbutton.Location = new System.Drawing.Point(95, 559);
-            this.GCODEbutton.Name = "GCODEbutton";
-            this.GCODEbutton.Size = new System.Drawing.Size(201, 63);
-            this.GCODEbutton.TabIndex = 7;
-            this.GCODEbutton.Text = "Genera File";
-            this.GCODEbutton.UseVisualStyleBackColor = false;
+            this.ZradioButton2.AutoSize = true;
+            this.ZradioButton2.Location = new System.Drawing.Point(86, 44);
+            this.ZradioButton2.Name = "ZradioButton2";
+            this.ZradioButton2.Size = new System.Drawing.Size(41, 29);
+            this.ZradioButton2.TabIndex = 1;
+            this.ZradioButton2.Text = "Z";
+            this.ZradioButton2.UseVisualStyleBackColor = true;
+            // 
+            // SradioButton1
+            // 
+            this.SradioButton1.AutoSize = true;
+            this.SradioButton1.Checked = true;
+            this.SradioButton1.Location = new System.Drawing.Point(22, 44);
+            this.SradioButton1.Name = "SradioButton1";
+            this.SradioButton1.Size = new System.Drawing.Size(40, 29);
+            this.SradioButton1.TabIndex = 0;
+            this.SradioButton1.TabStop = true;
+            this.SradioButton1.Text = "S";
+            this.SradioButton1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.FeedRatetextBox);
+            this.groupBox3.Location = new System.Drawing.Point(9, 172);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(419, 94);
+            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "FeedRate (Velocità Avanzamento)";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(133, 47);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(83, 25);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "mm/min";
+            // 
+            // FeedRatetextBox
+            // 
+            this.FeedRatetextBox.BackColor = System.Drawing.Color.Orange;
+            this.FeedRatetextBox.Location = new System.Drawing.Point(22, 44);
+            this.FeedRatetextBox.Name = "FeedRatetextBox";
+            this.FeedRatetextBox.Size = new System.Drawing.Size(105, 33);
+            this.FeedRatetextBox.TabIndex = 2;
+            this.FeedRatetextBox.Text = "1000";
+            this.FeedRatetextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.MaxPowertextBox);
+            this.groupBox2.Controls.Add(this.MinPowertextBox);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Location = new System.Drawing.Point(9, 7);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(419, 150);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Profilo Laser";
+            // 
+            // MaxPowertextBox
+            // 
+            this.MaxPowertextBox.BackColor = System.Drawing.Color.Orange;
+            this.MaxPowertextBox.Location = new System.Drawing.Point(138, 91);
+            this.MaxPowertextBox.Name = "MaxPowertextBox";
+            this.MaxPowertextBox.Size = new System.Drawing.Size(44, 33);
+            this.MaxPowertextBox.TabIndex = 3;
+            this.MaxPowertextBox.Text = "255";
+            this.MaxPowertextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // MinPowertextBox
+            // 
+            this.MinPowertextBox.BackColor = System.Drawing.Color.Orange;
+            this.MinPowertextBox.Location = new System.Drawing.Point(138, 39);
+            this.MinPowertextBox.Name = "MinPowertextBox";
+            this.MinPowertextBox.Size = new System.Drawing.Size(44, 33);
+            this.MinPowertextBox.TabIndex = 2;
+            this.MinPowertextBox.Text = "0";
+            this.MinPowertextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(17, 91);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(110, 25);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Max Power:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(17, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 25);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Min Power:";
             // 
             // ImgpictureBox1
             // 
             this.ImgpictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ImgpictureBox1.InitialImage = null;
-            this.ImgpictureBox1.Location = new System.Drawing.Point(448, 41);
+            this.ImgpictureBox1.Location = new System.Drawing.Point(-1, 0);
             this.ImgpictureBox1.Name = "ImgpictureBox1";
-            this.ImgpictureBox1.Size = new System.Drawing.Size(807, 676);
+            this.ImgpictureBox1.Size = new System.Drawing.Size(795, 676);
             this.ImgpictureBox1.TabIndex = 4;
             this.ImgpictureBox1.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.ImgpictureBox1);
+            this.panel1.Location = new System.Drawing.Point(449, 41);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(794, 676);
+            this.panel1.TabIndex = 5;
+            // 
+            // IncisioneBordocheckBox1
+            // 
+            this.IncisioneBordocheckBox1.AutoSize = true;
+            this.IncisioneBordocheckBox1.Checked = true;
+            this.IncisioneBordocheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.IncisioneBordocheckBox1.Location = new System.Drawing.Point(251, 46);
+            this.IncisioneBordocheckBox1.Name = "IncisioneBordocheckBox1";
+            this.IncisioneBordocheckBox1.Size = new System.Drawing.Size(162, 29);
+            this.IncisioneBordocheckBox1.TabIndex = 1;
+            this.IncisioneBordocheckBox1.Text = "Incisione bordo";
+            this.IncisioneBordocheckBox1.UseVisualStyleBackColor = true;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormConvertImg
             // 
@@ -571,13 +601,14 @@ namespace Elaborato_EdS_2021
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
             this.ClientSize = new System.Drawing.Size(1255, 750);
-            this.Controls.Add(this.ImgpictureBox1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormConvertImg";
             this.Text = "FormConvertImg";
+            this.Load += new System.EventHandler(this.FormConvertImg_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
@@ -585,21 +616,22 @@ namespace Elaborato_EdS_2021
             this.tabControl1.ResumeLayout(false);
             this.ImgtabPage.ResumeLayout(false);
             this.ImgtabPage.PerformLayout();
-            this.GCodetabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.LuminositàTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ContrastoTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GammaTrackBar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.GammaTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ContrastoTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LuminositàTrackBar)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            this.GCodetabPage1.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgpictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -650,7 +682,10 @@ namespace Elaborato_EdS_2021
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button GCODEbutton;
-        private System.Windows.Forms.CheckBox IncisioneBordocheckBox1;
         private System.Windows.Forms.PictureBox ImgpictureBox1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox IncisioneBordocheckBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

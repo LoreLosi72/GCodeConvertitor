@@ -27,6 +27,7 @@ namespace Elaborato_EdS_2021.Properties
         internal string powercmd;
         internal string modello;
         internal string bordoLinea;
+        internal bool incisioneBordo;
 
         public static Settings Default
         {
