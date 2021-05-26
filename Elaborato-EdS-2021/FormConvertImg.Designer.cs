@@ -43,6 +43,7 @@ namespace Elaborato_EdS_2021
             this.ContrastoTrackBar = new System.Windows.Forms.TrackBar();
             this.GammaTrackBar = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MDcomboBox = new System.Windows.Forms.ComboBox();
             this.RatiocheckBox = new System.Windows.Forms.CheckBox();
             this.RisoluzionetextBox3 = new System.Windows.Forms.TextBox();
             this.AltezzatextBox2 = new System.Windows.Forms.TextBox();
@@ -77,6 +78,10 @@ namespace Elaborato_EdS_2021
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.FooterichTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.PreGcoderichTextBox = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -92,6 +97,8 @@ namespace Elaborato_EdS_2021
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgpictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -103,7 +110,7 @@ namespace Elaborato_EdS_2021
             this.EscitoolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1255, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1476, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -160,9 +167,9 @@ namespace Elaborato_EdS_2021
             this.statusStrip1.BackColor = System.Drawing.Color.Orange;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatotoolStripStatusLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 720);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 725);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1255, 30);
+            this.statusStrip1.Size = new System.Drawing.Size(1476, 30);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -181,12 +188,13 @@ namespace Elaborato_EdS_2021
             this.tabControl1.Location = new System.Drawing.Point(0, 41);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(442, 676);
+            this.tabControl1.Size = new System.Drawing.Size(760, 676);
             this.tabControl1.TabIndex = 3;
             // 
             // ImgtabPage
             // 
             this.ImgtabPage.BackColor = System.Drawing.Color.Orange;
+            this.ImgtabPage.Controls.Add(this.groupBox6);
             this.ImgtabPage.Controls.Add(this.LuminositàTrackBar);
             this.ImgtabPage.Controls.Add(this.ContrastoTrackBar);
             this.ImgtabPage.Controls.Add(this.GammaTrackBar);
@@ -201,7 +209,7 @@ namespace Elaborato_EdS_2021
             this.ImgtabPage.Location = new System.Drawing.Point(4, 34);
             this.ImgtabPage.Name = "ImgtabPage";
             this.ImgtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ImgtabPage.Size = new System.Drawing.Size(434, 638);
+            this.ImgtabPage.Size = new System.Drawing.Size(752, 638);
             this.ImgtabPage.TabIndex = 0;
             this.ImgtabPage.Text = "Immagine";
             // 
@@ -212,8 +220,8 @@ namespace Elaborato_EdS_2021
             this.LuminositàTrackBar.Maximum = 127;
             this.LuminositàTrackBar.Minimum = -127;
             this.LuminositàTrackBar.Name = "LuminositàTrackBar";
-            this.LuminositàTrackBar.Size = new System.Drawing.Size(422, 45);
-            this.LuminositàTrackBar.TabIndex = 23;
+            this.LuminositàTrackBar.Size = new System.Drawing.Size(740, 45);
+            this.LuminositàTrackBar.TabIndex = 0;
             this.LuminositàTrackBar.TickFrequency = 10;
             this.LuminositàTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.LuminositàTrackBar.Scroll += new System.EventHandler(this.LuminositàTrackBar_Scroll);
@@ -225,8 +233,8 @@ namespace Elaborato_EdS_2021
             this.ContrastoTrackBar.Maximum = 127;
             this.ContrastoTrackBar.Minimum = -127;
             this.ContrastoTrackBar.Name = "ContrastoTrackBar";
-            this.ContrastoTrackBar.Size = new System.Drawing.Size(419, 45);
-            this.ContrastoTrackBar.TabIndex = 22;
+            this.ContrastoTrackBar.Size = new System.Drawing.Size(737, 45);
+            this.ContrastoTrackBar.TabIndex = 1;
             this.ContrastoTrackBar.TickFrequency = 10;
             this.ContrastoTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.ContrastoTrackBar.Scroll += new System.EventHandler(this.ContrastoTrackBar_Scroll);
@@ -238,8 +246,8 @@ namespace Elaborato_EdS_2021
             this.GammaTrackBar.Maximum = 500;
             this.GammaTrackBar.Minimum = 1;
             this.GammaTrackBar.Name = "GammaTrackBar";
-            this.GammaTrackBar.Size = new System.Drawing.Size(417, 45);
-            this.GammaTrackBar.TabIndex = 11;
+            this.GammaTrackBar.Size = new System.Drawing.Size(735, 45);
+            this.GammaTrackBar.TabIndex = 2;
             this.GammaTrackBar.TickFrequency = 22;
             this.GammaTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.GammaTrackBar.Value = 50;
@@ -256,17 +264,29 @@ namespace Elaborato_EdS_2021
             this.groupBox1.Controls.Add(this.Larglabel);
             this.groupBox1.Location = new System.Drawing.Point(9, 354);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(419, 186);
+            this.groupBox1.Size = new System.Drawing.Size(737, 93);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Output (mm)";
+            // 
+            // MDcomboBox
+            // 
+            this.MDcomboBox.FormattingEnabled = true;
+            this.MDcomboBox.Items.AddRange(new object[] {
+            "GrayScale 8 bit",
+            "Dithering 1 bit"});
+            this.MDcomboBox.Location = new System.Drawing.Point(9, 54);
+            this.MDcomboBox.Name = "MDcomboBox";
+            this.MDcomboBox.Size = new System.Drawing.Size(168, 33);
+            this.MDcomboBox.TabIndex = 18;
+            this.MDcomboBox.Text = "GrayScale 8 bit";
             // 
             // RatiocheckBox
             // 
             this.RatiocheckBox.AutoSize = true;
             this.RatiocheckBox.Checked = true;
             this.RatiocheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.RatiocheckBox.Location = new System.Drawing.Point(234, 41);
+            this.RatiocheckBox.Location = new System.Drawing.Point(646, 46);
             this.RatiocheckBox.Name = "RatiocheckBox";
             this.RatiocheckBox.Size = new System.Drawing.Size(74, 29);
             this.RatiocheckBox.TabIndex = 17;
@@ -277,9 +297,9 @@ namespace Elaborato_EdS_2021
             // RisoluzionetextBox3
             // 
             this.RisoluzionetextBox3.BackColor = System.Drawing.Color.Orange;
-            this.RisoluzionetextBox3.Location = new System.Drawing.Point(138, 132);
+            this.RisoluzionetextBox3.Location = new System.Drawing.Point(533, 39);
             this.RisoluzionetextBox3.Name = "RisoluzionetextBox3";
-            this.RisoluzionetextBox3.Size = new System.Drawing.Size(44, 33);
+            this.RisoluzionetextBox3.Size = new System.Drawing.Size(75, 33);
             this.RisoluzionetextBox3.TabIndex = 16;
             this.RisoluzionetextBox3.Text = "0.18";
             this.RisoluzionetextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -290,9 +310,9 @@ namespace Elaborato_EdS_2021
             // AltezzatextBox2
             // 
             this.AltezzatextBox2.BackColor = System.Drawing.Color.Orange;
-            this.AltezzatextBox2.Location = new System.Drawing.Point(138, 87);
+            this.AltezzatextBox2.Location = new System.Drawing.Point(301, 39);
             this.AltezzatextBox2.Name = "AltezzatextBox2";
-            this.AltezzatextBox2.Size = new System.Drawing.Size(44, 33);
+            this.AltezzatextBox2.Size = new System.Drawing.Size(75, 33);
             this.AltezzatextBox2.TabIndex = 15;
             this.AltezzatextBox2.Text = "100";
             this.AltezzatextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -303,9 +323,9 @@ namespace Elaborato_EdS_2021
             // LarghezzatextBox
             // 
             this.LarghezzatextBox.BackColor = System.Drawing.Color.Orange;
-            this.LarghezzatextBox.Location = new System.Drawing.Point(138, 39);
+            this.LarghezzatextBox.Location = new System.Drawing.Point(114, 39);
             this.LarghezzatextBox.Name = "LarghezzatextBox";
-            this.LarghezzatextBox.Size = new System.Drawing.Size(44, 33);
+            this.LarghezzatextBox.Size = new System.Drawing.Size(75, 33);
             this.LarghezzatextBox.TabIndex = 11;
             this.LarghezzatextBox.Text = "60";
             this.LarghezzatextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -316,7 +336,7 @@ namespace Elaborato_EdS_2021
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 135);
+            this.label5.Location = new System.Drawing.Point(414, 47);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 25);
             this.label5.TabIndex = 13;
@@ -325,7 +345,7 @@ namespace Elaborato_EdS_2021
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 87);
+            this.label4.Location = new System.Drawing.Point(218, 47);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 25);
             this.label4.TabIndex = 12;
@@ -346,7 +366,7 @@ namespace Elaborato_EdS_2021
             this.LumtextBox.Location = new System.Drawing.Point(120, 17);
             this.LumtextBox.Name = "LumtextBox";
             this.LumtextBox.ReadOnly = true;
-            this.LumtextBox.Size = new System.Drawing.Size(44, 33);
+            this.LumtextBox.Size = new System.Drawing.Size(67, 33);
             this.LumtextBox.TabIndex = 9;
             this.LumtextBox.Text = "0";
             this.LumtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -357,7 +377,7 @@ namespace Elaborato_EdS_2021
             this.ContrtextBox.Location = new System.Drawing.Point(120, 124);
             this.ContrtextBox.Name = "ContrtextBox";
             this.ContrtextBox.ReadOnly = true;
-            this.ContrtextBox.Size = new System.Drawing.Size(44, 33);
+            this.ContrtextBox.Size = new System.Drawing.Size(67, 33);
             this.ContrtextBox.TabIndex = 8;
             this.ContrtextBox.Text = "0";
             this.ContrtextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -368,7 +388,7 @@ namespace Elaborato_EdS_2021
             this.GammatextBox.Location = new System.Drawing.Point(120, 238);
             this.GammatextBox.Name = "GammatextBox";
             this.GammatextBox.ReadOnly = true;
-            this.GammatextBox.Size = new System.Drawing.Size(44, 33);
+            this.GammatextBox.Size = new System.Drawing.Size(67, 33);
             this.GammatextBox.TabIndex = 7;
             this.GammatextBox.Text = "1";
             this.GammatextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -404,7 +424,7 @@ namespace Elaborato_EdS_2021
             // 
             this.VisualOriginalebutton.BackColor = System.Drawing.Color.Orange;
             this.VisualOriginalebutton.ForeColor = System.Drawing.Color.Black;
-            this.VisualOriginalebutton.Location = new System.Drawing.Point(80, 557);
+            this.VisualOriginalebutton.Location = new System.Drawing.Point(310, 508);
             this.VisualOriginalebutton.Name = "VisualOriginalebutton";
             this.VisualOriginalebutton.Size = new System.Drawing.Size(237, 63);
             this.VisualOriginalebutton.TabIndex = 0;
@@ -417,6 +437,7 @@ namespace Elaborato_EdS_2021
             // GCodetabPage1
             // 
             this.GCodetabPage1.BackColor = System.Drawing.Color.Orange;
+            this.GCodetabPage1.Controls.Add(this.groupBox7);
             this.GCodetabPage1.Controls.Add(this.GCODEbutton);
             this.GCodetabPage1.Controls.Add(this.groupBox5);
             this.GCodetabPage1.Controls.Add(this.groupBox4);
@@ -425,14 +446,14 @@ namespace Elaborato_EdS_2021
             this.GCodetabPage1.Location = new System.Drawing.Point(4, 34);
             this.GCodetabPage1.Name = "GCodetabPage1";
             this.GCodetabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.GCodetabPage1.Size = new System.Drawing.Size(434, 638);
+            this.GCodetabPage1.Size = new System.Drawing.Size(752, 638);
             this.GCodetabPage1.TabIndex = 2;
             this.GCodetabPage1.Text = "GCode";
             // 
             // GCODEbutton
             // 
             this.GCODEbutton.BackColor = System.Drawing.Color.Orange;
-            this.GCODEbutton.Location = new System.Drawing.Point(95, 524);
+            this.GCODEbutton.Location = new System.Drawing.Point(260, 528);
             this.GCODEbutton.Name = "GCODEbutton";
             this.GCODEbutton.Size = new System.Drawing.Size(201, 63);
             this.GCODEbutton.TabIndex = 7;
@@ -595,32 +616,74 @@ namespace Elaborato_EdS_2021
             // 
             // ImgpictureBox1
             // 
+            this.ImgpictureBox1.BackColor = System.Drawing.Color.White;
             this.ImgpictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ImgpictureBox1.InitialImage = null;
             this.ImgpictureBox1.Location = new System.Drawing.Point(0, 0);
             this.ImgpictureBox1.Name = "ImgpictureBox1";
-            this.ImgpictureBox1.Size = new System.Drawing.Size(795, 676);
+            this.ImgpictureBox1.Size = new System.Drawing.Size(683, 642);
             this.ImgpictureBox1.TabIndex = 4;
             this.ImgpictureBox1.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.ImgpictureBox1);
-            this.panel1.Location = new System.Drawing.Point(449, 41);
+            this.panel1.Location = new System.Drawing.Point(781, 75);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(794, 676);
-            this.panel1.TabIndex = 5;
+            this.panel1.Size = new System.Drawing.Size(683, 642);
+            this.panel1.TabIndex = 6;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.Filter = "G-Code Files(*.CNC;*.NC;*.TAP;*.TXT)|*.CNC;*.NC;*.TAP;*.TXT|All files (*.*)|*.*";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.MDcomboBox);
+            this.groupBox6.Location = new System.Drawing.Point(11, 470);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(199, 130);
+            this.groupBox6.TabIndex = 19;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Modalità";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.PreGcoderichTextBox);
+            this.groupBox7.Controls.Add(this.FooterichTextBox1);
+            this.groupBox7.Location = new System.Drawing.Point(445, 7);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(301, 483);
+            this.groupBox7.TabIndex = 8;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Gcode";
+            // 
+            // FooterichTextBox1
+            // 
+            this.FooterichTextBox1.Location = new System.Drawing.Point(6, 295);
+            this.FooterichTextBox1.Name = "FooterichTextBox1";
+            this.FooterichTextBox1.Size = new System.Drawing.Size(289, 140);
+            this.FooterichTextBox1.TabIndex = 0;
+            this.FooterichTextBox1.Text = "(Footer)\nG0 X0 Y0\n(Footer end)";
+            // 
+            // PreGcoderichTextBox
+            // 
+            this.PreGcoderichTextBox.Location = new System.Drawing.Point(6, 88);
+            this.PreGcoderichTextBox.Name = "PreGcoderichTextBox";
+            this.PreGcoderichTextBox.Size = new System.Drawing.Size(289, 140);
+            this.PreGcoderichTextBox.TabIndex = 1;
+            this.PreGcoderichTextBox.Text = "(Header)\nG0 X0 Y0\n(Header end)";
             // 
             // FormConvertImg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
-            this.ClientSize = new System.Drawing.Size(1255, 750);
+            this.ClientSize = new System.Drawing.Size(1476, 755);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
@@ -628,6 +691,7 @@ namespace Elaborato_EdS_2021
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormConvertImg";
             this.Text = "FormConvertImg";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConvertImg_FormClosing);
             this.Load += new System.EventHandler(this.FormConvertImg_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -652,6 +716,8 @@ namespace Elaborato_EdS_2021
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgpictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -707,5 +773,10 @@ namespace Elaborato_EdS_2021
         private System.Windows.Forms.CheckBox IncisioneBordocheckBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ComboBox MDcomboBox;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.RichTextBox PreGcoderichTextBox;
+        private System.Windows.Forms.RichTextBox FooterichTextBox1;
     }
 }
