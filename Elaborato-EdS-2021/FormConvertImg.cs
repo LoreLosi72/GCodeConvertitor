@@ -31,11 +31,11 @@ namespace Elaborato_EdS_2021
         {
             try
             {
-                string set;
+                //string set;
                 //Properties.Settings.Default.autoZoom = VisualZoomtoolStripMenuItem1.Checked; //zoom immagine
-                Properties.Settings.Default.width = LarghezzatextBox.Text; //larghezza immagine
-                Properties.Settings.Default.height = AltezzatextBox2.Text; //altezza immagine
-                Properties.Settings.Default.risoluzione = RisoluzionetextBox3.Text; //risoluzione immagine
+                //Properties.Settings.Default.width = LarghezzatextBox.Text; //larghezza immagine
+                //Properties.Settings.Default.height = AltezzatextBox2.Text; //altezza immagine
+                //Properties.Settings.Default.risoluzione = RisoluzionetextBox3.Text; //risoluzione immagine
                 //Properties.Settings.Default.minPower = MinPowertextBox.Text; //min power profilo laser
                 //Properties.Settings.Default.maxPower = MaxPowertextBox.Text; //max power profilo laser
                 //Properties.Settings.Default.feedRate = FeedRatetextBox.Text; //velocità di avanzamento 
@@ -59,9 +59,9 @@ namespace Elaborato_EdS_2021
             {
                 //VisualZoomtoolStripMenuItem1.Checked = Properties.Settings.Default.autoZoom;
                 //VisualZoomtoolStripMenuItem1_Click(this, null);
-                LarghezzatextBox.Text = Properties.Settings.Default.width;
-                AltezzatextBox2.Text = Properties.Settings.Default.height;
-                RisoluzionetextBox3.Text = Properties.Settings.Default.risoluzione;
+                //LarghezzatextBox.Text = Properties.Settings.Default.width;
+                //AltezzatextBox2.Text = Properties.Settings.Default.height;
+                //RisoluzionetextBox3.Text = Properties.Settings.Default.risoluzione;
                 //MinPowertextBox.Text = Properties.Settings.Default.minPower;
                 //MaxPowertextBox.Text = Properties.Settings.Default.maxPower;
                 //FeedRatetextBox.Text = Properties.Settings.Default.feedRate;
@@ -101,7 +101,7 @@ namespace Elaborato_EdS_2021
         {
             Text = "Immagine in GCODE per stampante 3D";
             StatotoolStripStatusLabel.Text = "Pronto";
-            LoadSettings();
+            //LoadSettings();
             //VisualZoomtoolStripMenuItem1_Click(this, null); //settaggio iniziale dello zoom dell'immagine.
         }
 
@@ -209,6 +209,7 @@ namespace Elaborato_EdS_2021
             }
         }
 
+        //OK
         private void VisualOriginalebutton_MouseUp(object sender, MouseEventArgs e) //rivisualizza l'immagine corrente modificata
         {
             if (ImgRev == null) return; //se non c'è l'immagine la funzione non fa niente
@@ -216,6 +217,7 @@ namespace Elaborato_EdS_2021
             ImgpictureBox1.Image = ImgRev; //immagine revisionata, modificata dall'utente attraverso ridimensionamento e bilanciamneto
         }
 
+        //OK
         private void VisualOriginalebutton_MouseDown(object sender, MouseEventArgs e) //preview dell'immagine originale inserita
         {
             if (ImgRev == null) return; //se non c'è l'immagine, la funzione non fa niente
@@ -495,12 +497,13 @@ namespace Elaborato_EdS_2021
 
             if (coordinateX != lastX) // aggiunge la coordinata X alla linea se è diversa dalla coordinata X precedente
             {
-                coordinataXstr = string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0.0.###}", coordinateX);
+                coordinataXstr = string.Format(CultureInfo.InvariantCulture.NumberFormat,"{0:0.###}", coordinateX);
                 line += 'X' + coordinataXstr;
+
             }
             if (coordinateY != lastY) // aggiunge la coordinata Y alla linea se è diversa dalla coordinata Y precedente
             {
-                coordinataYstr = string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0.0.###}", coordinateY);
+                coordinataYstr = string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0:0.###}", coordinateY);
                 line += 'Y' + coordinataYstr;
             }
             if (SZ != lastSZ) // aggiunge valore power (potenza) alla linea se è differente dal valore precedente
@@ -591,12 +594,12 @@ namespace Elaborato_EdS_2021
                 while (linea >= 0)
                 {
                     //Coordinata Y
-                    coordinateY = risoluzione * (float)linea;
+                    coordinateY = risoluzione * linea;
                     while (colonna < ImgRev.Width) // da SINISTRA A DESTRA. Movimento in larghezza
                     {
-                       //Coordinata X
-                        coordinateX = risoluzione * (float)colonna;
-                        
+                        //Coordinata X
+                        coordinateX = risoluzione * colonna;
+
                         //Valore power
                         Color colore = ImgRev.GetPixel(colonna, (ImgRev.Height - 1) - linea); //prendo pixel colore
                         SZ = 255 - colore.R; //rosso
@@ -616,7 +619,7 @@ namespace Elaborato_EdS_2021
                     linea--;
                     coordinateY = risoluzione * (float)linea;
 
-                    while((colonna>=0) & (linea >= 0)) // da DESTRA A SINISTRA
+                    while ((colonna >= 0) & (linea >= 0)) // da DESTRA A SINISTRA
                     {
                         //Coordinata X
                         coordinateX = risoluzione * (float)colonna;
@@ -635,42 +638,100 @@ namespace Elaborato_EdS_2021
                         lastSZ = SZ;
                         colonna--;
                     }
-
-                    if (IncisioneBordocheckBox1.Checked)
-                    {
-                        line = "M5\r";
-                        LineeFile.Add(line);
-
-                        line = "G0X0Y0\r";
-                        LineeFile.Add(line);
-
-                        line = "M3S" + MaxPowertextBox.Text + "\r";
-                        LineeFile.Add(line);
-                    }
                     colonna++;
-                    linea++;
-                    StatotoolStripStatusLabel.Text = "Generazione File in corso...." + Convert.ToString((pixelBruciati * 100) / pixelTot) + "%";
+                    linea--;
+                    StatotoolStripStatusLabel.Text = "Generazione del File in corso.... " + Convert.ToString((pixelBurned * 100) / pixelTot) + "%";
                     Refresh();
-
-                    //Spengo il Laser/Mandrino
-                    line = "M5\r";
-                    LineeFile.Add(line);
-
-                    StatotoolStripStatusLabel.Text = "Salvataggio del file in corso....";
-                    Refresh();
-
-                    //Salvataggio del file con il GCODE dell'immagine
-                    File.WriteAllLines(saveFileDialog1.FileName, LineeFile);
                 }
-
             }
+
+            //linee bordo
+            if (IncisioneBordocheckBox1.Checked)
+            {
+                line = "M5\r";
+                LineeFile.Add(line);
+
+                line = "G0X0Y0\r";
+                LineeFile.Add(line);
+
+                line = "M3S" + MaxPowertextBox.Text + "\r";
+                LineeFile.Add(line);
+
+                line = "G1X0Y" + string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0:0.###}", (ImgRev.Height - 1) * risoluzione) + "\r";
+                LineeFile.Add(line);
+
+                line = "G1X" + string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0:0.###}", (ImgRev.Width - 1) * risoluzione) + "Y" + string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0:0.###}", (ImgRev.Height - 1) * risoluzione) + "\r";
+                LineeFile.Add(line);
+
+                line = "G1X" + string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0:0.###}", (ImgRev.Width - 1) * risoluzione) + "Y0\r";
+                LineeFile.Add(line);
+
+                line = "G1X0Y0\r";
+                LineeFile.Add(line);
+                    
+            }
+            //Spengo il Laser/Mandrino
+            line = "M5\r";
+            LineeFile.Add(line);
+
+            //Aggiungo il codice GCODE alla fine
+            foreach (string s in FooterichTextBox1.Lines)
+            {
+                LineeFile.Add(s);
+            }
+
+               
+            StatotoolStripStatusLabel.Text = "Salvataggio del file in corso....";
+            Refresh();
+
+            //Salvataggio del file con il GCODE dell'immagine
+            File.WriteAllLines(saveFileDialog1.FileName, LineeFile);
+            StatotoolStripStatusLabel.Text = "Fatto (" + Convert.ToString(pixelBurned) + "/" + Convert.ToString(pixelTot) + ")";         
+
+            
         }
 
         
+        //OK 
 
         private void FormConvertImg_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SaveSettings();
+            //SaveSettings();
+        }
+
+        //OK
+        private void FeedRatetextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!checkDigitInteger(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void MinPowertextBox_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        //OK
+        private void MinPowertextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!checkDigitInteger(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+        }
+
+        //OK
+        private void MaxPowertextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!checkDigitInteger(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
 }

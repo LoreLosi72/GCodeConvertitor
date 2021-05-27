@@ -39,11 +39,12 @@ namespace Elaborato_EdS_2021
             this.StatotoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ImgtabPage = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.MDcomboBox = new System.Windows.Forms.ComboBox();
             this.LuminositàTrackBar = new System.Windows.Forms.TrackBar();
             this.ContrastoTrackBar = new System.Windows.Forms.TrackBar();
             this.GammaTrackBar = new System.Windows.Forms.TrackBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.MDcomboBox = new System.Windows.Forms.ComboBox();
             this.RatiocheckBox = new System.Windows.Forms.CheckBox();
             this.RisoluzionetextBox3 = new System.Windows.Forms.TextBox();
             this.AltezzatextBox2 = new System.Windows.Forms.TextBox();
@@ -59,6 +60,9 @@ namespace Elaborato_EdS_2021
             this.label1 = new System.Windows.Forms.Label();
             this.VisualOriginalebutton = new System.Windows.Forms.Button();
             this.GCodetabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.PreGcoderichTextBox = new System.Windows.Forms.RichTextBox();
+            this.FooterichTextBox1 = new System.Windows.Forms.RichTextBox();
             this.GCODEbutton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.IncisioneBordocheckBox1 = new System.Windows.Forms.CheckBox();
@@ -78,27 +82,23 @@ namespace Elaborato_EdS_2021
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.FooterichTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.PreGcoderichTextBox = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ImgtabPage.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LuminositàTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContrastoTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GammaTrackBar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.GCodetabPage1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgpictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -213,6 +213,28 @@ namespace Elaborato_EdS_2021
             this.ImgtabPage.TabIndex = 0;
             this.ImgtabPage.Text = "Immagine";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.MDcomboBox);
+            this.groupBox6.Location = new System.Drawing.Point(11, 470);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(199, 130);
+            this.groupBox6.TabIndex = 19;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Modalità";
+            // 
+            // MDcomboBox
+            // 
+            this.MDcomboBox.FormattingEnabled = true;
+            this.MDcomboBox.Items.AddRange(new object[] {
+            "GrayScale 8 bit",
+            "Dithering 1 bit"});
+            this.MDcomboBox.Location = new System.Drawing.Point(9, 54);
+            this.MDcomboBox.Name = "MDcomboBox";
+            this.MDcomboBox.Size = new System.Drawing.Size(168, 33);
+            this.MDcomboBox.TabIndex = 18;
+            this.MDcomboBox.Text = "GrayScale 8 bit";
+            // 
             // LuminositàTrackBar
             // 
             this.LuminositàTrackBar.BackColor = System.Drawing.Color.Orange;
@@ -268,18 +290,6 @@ namespace Elaborato_EdS_2021
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Output (mm)";
-            // 
-            // MDcomboBox
-            // 
-            this.MDcomboBox.FormattingEnabled = true;
-            this.MDcomboBox.Items.AddRange(new object[] {
-            "GrayScale 8 bit",
-            "Dithering 1 bit"});
-            this.MDcomboBox.Location = new System.Drawing.Point(9, 54);
-            this.MDcomboBox.Name = "MDcomboBox";
-            this.MDcomboBox.Size = new System.Drawing.Size(168, 33);
-            this.MDcomboBox.TabIndex = 18;
-            this.MDcomboBox.Text = "GrayScale 8 bit";
             // 
             // RatiocheckBox
             // 
@@ -450,6 +460,33 @@ namespace Elaborato_EdS_2021
             this.GCodetabPage1.TabIndex = 2;
             this.GCodetabPage1.Text = "GCode";
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.PreGcoderichTextBox);
+            this.groupBox7.Controls.Add(this.FooterichTextBox1);
+            this.groupBox7.Location = new System.Drawing.Point(445, 7);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(301, 483);
+            this.groupBox7.TabIndex = 8;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Gcode";
+            // 
+            // PreGcoderichTextBox
+            // 
+            this.PreGcoderichTextBox.Location = new System.Drawing.Point(6, 88);
+            this.PreGcoderichTextBox.Name = "PreGcoderichTextBox";
+            this.PreGcoderichTextBox.Size = new System.Drawing.Size(289, 140);
+            this.PreGcoderichTextBox.TabIndex = 1;
+            this.PreGcoderichTextBox.Text = "(Header)\nG0 X0 Y0\n(Header end)";
+            // 
+            // FooterichTextBox1
+            // 
+            this.FooterichTextBox1.Location = new System.Drawing.Point(6, 295);
+            this.FooterichTextBox1.Name = "FooterichTextBox1";
+            this.FooterichTextBox1.Size = new System.Drawing.Size(289, 140);
+            this.FooterichTextBox1.TabIndex = 0;
+            this.FooterichTextBox1.Text = "(Footer)\nG0 X0 Y0\n(Footer end)";
+            // 
             // GCODEbutton
             // 
             this.GCODEbutton.BackColor = System.Drawing.Color.Orange;
@@ -458,7 +495,7 @@ namespace Elaborato_EdS_2021
             this.GCODEbutton.Size = new System.Drawing.Size(201, 63);
             this.GCODEbutton.TabIndex = 7;
             this.GCODEbutton.Text = "Genera File";
-            this.GCODEbutton.UseVisualStyleBackColor = false;
+            this.GCODEbutton.UseVisualStyleBackColor = true;
             this.GCODEbutton.Click += new System.EventHandler(this.GCODEbutton_Click);
             // 
             // groupBox5
@@ -555,11 +592,11 @@ namespace Elaborato_EdS_2021
             this.FeedRatetextBox.BackColor = System.Drawing.Color.Orange;
             this.FeedRatetextBox.Location = new System.Drawing.Point(22, 44);
             this.FeedRatetextBox.Name = "FeedRatetextBox";
-            this.FeedRatetextBox.ReadOnly = true;
             this.FeedRatetextBox.Size = new System.Drawing.Size(105, 33);
             this.FeedRatetextBox.TabIndex = 2;
             this.FeedRatetextBox.Text = "1000";
             this.FeedRatetextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FeedRatetextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FeedRatetextBox_KeyPress);
             // 
             // groupBox2
             // 
@@ -579,22 +616,23 @@ namespace Elaborato_EdS_2021
             this.MaxPowertextBox.BackColor = System.Drawing.Color.Orange;
             this.MaxPowertextBox.Location = new System.Drawing.Point(138, 91);
             this.MaxPowertextBox.Name = "MaxPowertextBox";
-            this.MaxPowertextBox.ReadOnly = true;
             this.MaxPowertextBox.Size = new System.Drawing.Size(44, 33);
             this.MaxPowertextBox.TabIndex = 3;
             this.MaxPowertextBox.Text = "255";
             this.MaxPowertextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MaxPowertextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MaxPowertextBox_KeyPress);
             // 
             // MinPowertextBox
             // 
             this.MinPowertextBox.BackColor = System.Drawing.Color.Orange;
             this.MinPowertextBox.Location = new System.Drawing.Point(138, 39);
             this.MinPowertextBox.Name = "MinPowertextBox";
-            this.MinPowertextBox.ReadOnly = true;
             this.MinPowertextBox.Size = new System.Drawing.Size(44, 33);
             this.MinPowertextBox.TabIndex = 2;
             this.MinPowertextBox.Text = "0";
             this.MinPowertextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MinPowertextBox.TextChanged += new System.EventHandler(this.MinPowertextBox_TextChanged);
+            this.MinPowertextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MinPowertextBox_KeyPress);
             // 
             // label7
             // 
@@ -639,44 +677,8 @@ namespace Elaborato_EdS_2021
             // 
             // saveFileDialog1
             // 
+            this.saveFileDialog1.FileName = "file.nc";
             this.saveFileDialog1.Filter = "G-Code Files(*.CNC;*.NC;*.TAP;*.TXT)|*.CNC;*.NC;*.TAP;*.TXT|All files (*.*)|*.*";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.MDcomboBox);
-            this.groupBox6.Location = new System.Drawing.Point(11, 470);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(199, 130);
-            this.groupBox6.TabIndex = 19;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Modalità";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.PreGcoderichTextBox);
-            this.groupBox7.Controls.Add(this.FooterichTextBox1);
-            this.groupBox7.Location = new System.Drawing.Point(445, 7);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(301, 483);
-            this.groupBox7.TabIndex = 8;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Gcode";
-            // 
-            // FooterichTextBox1
-            // 
-            this.FooterichTextBox1.Location = new System.Drawing.Point(6, 295);
-            this.FooterichTextBox1.Name = "FooterichTextBox1";
-            this.FooterichTextBox1.Size = new System.Drawing.Size(289, 140);
-            this.FooterichTextBox1.TabIndex = 0;
-            this.FooterichTextBox1.Text = "(Footer)\nG0 X0 Y0\n(Footer end)";
-            // 
-            // PreGcoderichTextBox
-            // 
-            this.PreGcoderichTextBox.Location = new System.Drawing.Point(6, 88);
-            this.PreGcoderichTextBox.Name = "PreGcoderichTextBox";
-            this.PreGcoderichTextBox.Size = new System.Drawing.Size(289, 140);
-            this.PreGcoderichTextBox.TabIndex = 1;
-            this.PreGcoderichTextBox.Text = "(Header)\nG0 X0 Y0\n(Header end)";
             // 
             // FormConvertImg
             // 
@@ -700,12 +702,14 @@ namespace Elaborato_EdS_2021
             this.tabControl1.ResumeLayout(false);
             this.ImgtabPage.ResumeLayout(false);
             this.ImgtabPage.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.LuminositàTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContrastoTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GammaTrackBar)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.GCodetabPage1.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -716,8 +720,6 @@ namespace Elaborato_EdS_2021
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgpictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
