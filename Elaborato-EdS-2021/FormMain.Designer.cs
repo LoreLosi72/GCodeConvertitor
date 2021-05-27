@@ -30,6 +30,7 @@ namespace Elaborato_EdS_2021
         private void InitializeComponent()
         {
             this.btn_img = new System.Windows.Forms.Button();
+            this.Testobutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_img
@@ -42,11 +43,22 @@ namespace Elaborato_EdS_2021
             this.btn_img.UseVisualStyleBackColor = true;
             this.btn_img.Click += new System.EventHandler(this.btn_img_Click);
             // 
+            // Testobutton
+            // 
+            this.Testobutton.Location = new System.Drawing.Point(206, 251);
+            this.Testobutton.Name = "Testobutton";
+            this.Testobutton.Size = new System.Drawing.Size(320, 71);
+            this.Testobutton.TabIndex = 1;
+            this.Testobutton.Text = "testo";
+            this.Testobutton.UseVisualStyleBackColor = true;
+            this.Testobutton.Click += new System.EventHandler(this.Testobutton_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Testobutton);
             this.Controls.Add(this.btn_img);
             this.Name = "FormMain";
             this.Text = "Form1";
@@ -58,6 +70,7 @@ namespace Elaborato_EdS_2021
         #endregion
 
         private System.Windows.Forms.Button btn_img;
+        private System.Windows.Forms.Button Testobutton;
     }
 }
 

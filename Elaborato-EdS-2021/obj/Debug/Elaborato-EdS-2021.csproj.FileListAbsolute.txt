@@ -31,3 +31,4 @@ C:\Users\M_INF_5H\Desktop\GCodeConvertitor\Elaborato-EdS-2021\obj\Debug\Elaborat
 C:\Users\M_INF_5H\Desktop\GCodeConvertitor\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.csproj.CoreCompileInputs.cache
 C:\Users\M_INF_5H\Desktop\GCodeConvertitor\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.exe
 C:\Users\M_INF_5H\Desktop\GCodeConvertitor\Elaborato-EdS-2021\obj\Debug\Elaborato-EdS-2021.pdb
+C:\Users\loren\Desktop\GCodeConvertitor\Elaborato-EdS-2021\obj\Debug\Elaborato_EdS_2021.FormTesto.resources

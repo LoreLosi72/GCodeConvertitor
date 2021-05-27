@@ -18,6 +18,7 @@ namespace Elaborato_EdS_2021
         }
 
         FormConvertImg form_img;
+        FormTesto form_txt;
         
         private void btn_img_Click(object sender, EventArgs e)
         {
@@ -30,6 +31,12 @@ namespace Elaborato_EdS_2021
         private void FormMain_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Testobutton_Click(object sender, EventArgs e)
+        {
+            form_txt = new FormTesto();
+            form_txt.ShowDialog();
         }
     }
 }
