@@ -13,54 +13,173 @@ namespace Elaborato_EdS_2021
 {
     public partial class FormTesto : Form
     {
-        List<List<string>> GLista = new List<List<string>>(); //Lista di liste di Gcode  
+
+        //VARIABILI  OK
+
+        List<List<string>> GCodeLista = new List<List<string>>(); //Lista di liste GCode dei caratteri
+        
         float GcodeX = 0; //valore X Gcode
         float GcodeY = 0; //valore Y Gcode
-        float NewX = 0; //valore nuovo X
-        float NewY = 0; //valore nuovo Y
-        float OffsetX = 0; //spostamento rispetto alla X
+
+        float NewX = 0;
+        float NewY = 0;
+
+        float OffsetX = 0; //movimento sull'asse X
+
         float FlyAltezza = 5;
-        float ProfonditàAltezza = -1; //profondità di taglio
         float FontAltezza = 12; //altezza font
-        string FlyAltezzaStr;
-        string ProfonditàAltezzaStr;
-        string FontAltezzaStr;
-        float ScaleFactor;
+        float ProfonditàAltezza = -1; //profondità di taglio
         
+        string FlyAltezzaStr;
+        //string FontAltezzaStr;
+        string ProfonditàAltezzaStr;
+
+        float ScaleFactor;
         public FormTesto()
         {
             InitializeComponent();
+            CaricaGCodeLista(); //Carico la lista di liste di coordinate XY dei caratteri
         }
 
-        //PRENDO COORDINATE DALLA STRINGA OK
-        private void CoordinateDaStringa(string stringaCoo) //funzione che analizza una stringa nel formato "Xnumero Ynumero" e assegna i valori X e Y alle variabile GcodeX e GcodeY
+       private void EscitoolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string stringa = stringaCoo.Trim().ToUpper(); //vengono rimossi tutti gli spazi con trim e con toupper viene tutto trasformato in maiuscolo
-            int posizioneX = stringa.LastIndexOf("X"); //con lastindex trovo la posizione di X nella stringa
-            int posizioneY = stringa.LastIndexOf("Y"); //trovo la posizione della Y
+            Close();
+        }
 
-            if ((posizioneX == -1) | (posizioneY == -1)) //se tutti e due hanno valore -1 (vuol dire che lastindex non ha trovato il carattere specificato nella stringa) allora genero errore
+        //GENERAZIONE GCODE 
+        private void GeneraGcodebutton1_Click(object sender, EventArgs e)
+        {
+
+            OffsetX = 0; //reset dell'offset
+            
+            try //provo a convertire FlyAltezza
             {
-                MessageBox.Show("Linea Input non ha coordinate ne X ne Y!!", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                FlyAltezza = Convert.ToSingle(FlyAltezzatextBox2.Text); 
             }
-            else //se invece ce le ha allora convertiamo
+            catch
             {
-                if (posizioneY > posizioneX)//verifico se la Y nella stringa è dopo la X
+                MessageBox.Show("Valore Fly Altezza non valido!");
+                Application.Exit();
+            }
+
+            try //provo a convertire Profondità di Taglio
+            {
+                ProfonditàAltezza = Convert.ToSingle(ProfonditatextBox3.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Valore Profondità non valido!");
+                Application.Exit();
+            }
+
+            try //provo a convertire Altezza Font
+            {
+                FontAltezza = Convert.ToSingle(AltezzatextBox1.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Valore Font Altezza non valido!");
+                Application.Exit();
+            }
+            
+            if (FlyAltezza > 0.5)
+            {
+                FlyAltezzaStr = "Z" + FlyAltezza.ToString("0.000");
+            }
+            else
+            {
+                FlyAltezzaStr = "Z5.0";
+            }
+            
+            ProfonditàAltezzaStr = "Z" + ProfonditàAltezza.ToString("0.000");
+
+            if (FontAltezza < 0.5)
+            {
+                FontAltezza = 0.5f;
+            }
+
+            ScaleFactor = FontAltezza / 18.0f;  
+
+            if (Testotxt.Text != "") //controllo se la textbox del testo non è vuota
+            {
+
+                if (saveFileDialog1.ShowDialog() == DialogResult.Cancel) return;
+                List<string> Gcode = new List<string>();
+
+                StringBuilder sb = new StringBuilder();
+
+                sb.AppendLine("G21"); //imposto unità in mm
+                sb.AppendLine("F1000"); //FeedRate (velocità di avanzamento) predefinita
+
+                Application.DoEvents();
+
+                string Testo = Testotxt.Text; //memorizzo testi inserito in una variabile
+                
+                foreach (char carattere in Testo)  //faccio passare ogni carattere del testo
                 {
-                    string bitY = stringa.Substring(posizioneY + 1); //attraverso substring prendo la stringa subito dopo la Y
-                    string bitX = stringa.Substring(1, posizioneY - 1).Trim(); // attraverso substring prendo la stringa da dopo la X fino a prima dell Y e poi tolgo spazi attraverso trim
+                    string tempstring = GCodeLista[1][3];
 
-                    //memorizzo le coordinate e le trasformo in numeri da stringhe
-                    GcodeX = (float)Convert.ToDouble(bitX);
-                    GcodeY = Convert.ToSingle(bitY);
+                    foreach (List<string> GcodeListaCarattere in GCodeLista) //lista delle righe di Gcode dei caratteri
+                    {
+
+                        string atempstring = GcodeListaCarattere[0];
+
+                        if (GcodeListaCarattere[0][0] == carattere) //quando e se il primo carattere del testo sarà uguale al carattere rappresentativo del suo Gcode allora vado avanti
+                        {
+                            
+                            int numero_elem = GcodeListaCarattere.Count(); //memorizzo numero di elementi nella lista Gcode del carattere
+
+                            for (int i = 1; i < (numero_elem); i++)
+                            {
+                                string elem = GcodeListaCarattere[i];
+
+                                if (elem.Trim() == "ZF") //se la linea di Gcode del carattere contiene ZF allora inserico nella stessa linea FlyAltezza
+                                {
+                                    sb.AppendLine(FlyAltezzaStr);
+                                }
+                                else if (elem.Trim() == "ZC") //se la linea di Gcode del carattere contiene ZC allora inserisco nella stessa linea la Profondità di Taglio
+                                {
+                                    sb.AppendLine(ProfonditàAltezzaStr);
+                                }
+                                else
+                                {
+                                    getcoords(elem);
+
+                                    NewX = GcodeX + OffsetX;
+                                    NewY = GcodeY;
+
+                                    NewX = NewX * ScaleFactor;
+                                    NewY = NewY * ScaleFactor;
+
+                                    string NewXcoordinata = NewX.ToString("0.000");
+                                    string NewYcoordinata = NewY.ToString("0.000");
+
+                                    string lineaGcode = "X" + NewXcoordinata + " Y" + NewYcoordinata;
+                                    sb.AppendLine(lineaGcode);
+                                }
+                                
+                            }
+
+                            OffsetX = OffsetX + 18; //incremento Offset
+                        }
+
+                    }
+                    
                 }
+                sb.Replace(',', '.'); //sostituisco le , con i punti.Esempio: X4,718-->X4.718
+                Gcode.Add(sb.ToString());//inserisco il Gcode nella lista
+               
+                File.WriteAllLines(saveFileDialog1.FileName, Gcode);//salvo il file
+            }
+            else
+            {
+                MessageBox.Show("Testo da convertire non inserito, riprova!");
             }
         }
 
-        //LISTA GCODE CARATTERI (LISTA DI LISTE DI GCODE CARATTERI)
-        private void ListaGcodeCaratteri()
+        public void CaricaGCodeLista()
         {
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "0",
              "ZF",
@@ -80,7 +199,7 @@ namespace Elaborato_EdS_2021
              "X12 Y12",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "1",
              "ZF",
@@ -92,7 +211,7 @@ namespace Elaborato_EdS_2021
              "X3 Y15",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "2",
              "ZF",
@@ -107,7 +226,7 @@ namespace Elaborato_EdS_2021
              "X12 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "3",
              "ZF",
@@ -127,7 +246,7 @@ namespace Elaborato_EdS_2021
              "X0 Y16",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "4",
              "ZF",
@@ -138,7 +257,7 @@ namespace Elaborato_EdS_2021
              "X12 Y6",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "5",
              "ZF",
@@ -155,7 +274,7 @@ namespace Elaborato_EdS_2021
              "X12 Y18",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "6",
              "ZF",
@@ -173,7 +292,7 @@ namespace Elaborato_EdS_2021
              "X7 Y18",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "7",
              "ZF",
@@ -183,7 +302,7 @@ namespace Elaborato_EdS_2021
              "X4 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "8",
              "ZF",
@@ -206,7 +325,7 @@ namespace Elaborato_EdS_2021
              "X3 Y10",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "9",
              "ZF",
@@ -225,7 +344,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              ".",
              "ZF",
@@ -235,7 +354,7 @@ namespace Elaborato_EdS_2021
             });
 
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "a",
              "ZF",
@@ -253,7 +372,7 @@ namespace Elaborato_EdS_2021
              "X13 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "b",
              "ZF",
@@ -268,7 +387,7 @@ namespace Elaborato_EdS_2021
              "X0 Y9",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "c",
              "ZF",
@@ -281,7 +400,7 @@ namespace Elaborato_EdS_2021
              "X11 Y2",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "d",
              "ZF",
@@ -296,7 +415,7 @@ namespace Elaborato_EdS_2021
              "X12 Y18",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "e",
              "ZF",
@@ -312,7 +431,7 @@ namespace Elaborato_EdS_2021
              "X12 Y2",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "f",
              "ZF",
@@ -327,7 +446,7 @@ namespace Elaborato_EdS_2021
              "X4 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "g",
              "ZF",
@@ -344,7 +463,7 @@ namespace Elaborato_EdS_2021
              "X0 Y-5",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "h",
              "ZF",
@@ -359,7 +478,7 @@ namespace Elaborato_EdS_2021
              "X12 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "i",
              "ZF",
@@ -376,7 +495,7 @@ namespace Elaborato_EdS_2021
              "X7 Y18",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "j",
              "ZF",
@@ -394,7 +513,7 @@ namespace Elaborato_EdS_2021
              "X8 Y18",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "k",
              "ZF",
@@ -411,7 +530,7 @@ namespace Elaborato_EdS_2021
              "X12 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "l",
              "ZF",
@@ -423,7 +542,7 @@ namespace Elaborato_EdS_2021
              "X9 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "m",
              "ZF",
@@ -442,7 +561,7 @@ namespace Elaborato_EdS_2021
              "X12 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "n",
              "ZF",
@@ -455,7 +574,7 @@ namespace Elaborato_EdS_2021
              "X12 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "o",
              "ZF",
@@ -469,7 +588,7 @@ namespace Elaborato_EdS_2021
              "X6 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "p",
              "ZF",
@@ -484,7 +603,7 @@ namespace Elaborato_EdS_2021
              "X0 Y2",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "q",
              "ZF",
@@ -500,7 +619,7 @@ namespace Elaborato_EdS_2021
              "X13 Y-8",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "r",
              "ZF",
@@ -512,7 +631,7 @@ namespace Elaborato_EdS_2021
              "X12 Y8",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "s",
              "ZF",
@@ -527,7 +646,7 @@ namespace Elaborato_EdS_2021
              "X12 Y10",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "t",
              "ZF",
@@ -542,7 +661,7 @@ namespace Elaborato_EdS_2021
              "X12 Y2",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "u",
              "ZF",
@@ -554,7 +673,7 @@ namespace Elaborato_EdS_2021
              "X12 Y11",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "v",
              "ZF",
@@ -564,7 +683,7 @@ namespace Elaborato_EdS_2021
              "X12 Y11",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "w",
              "ZF",
@@ -576,7 +695,7 @@ namespace Elaborato_EdS_2021
              "X12 Y11",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "x",
              "ZF",
@@ -589,7 +708,7 @@ namespace Elaborato_EdS_2021
              "X11 Y0",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "y",
              "ZF",
@@ -602,7 +721,7 @@ namespace Elaborato_EdS_2021
              "X12 Y11",
              "ZF"
             });
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "z",
              "ZF",
@@ -614,14 +733,14 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              " ",
              "ZF"
             });
 
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "A",
              "ZF",
@@ -638,7 +757,7 @@ namespace Elaborato_EdS_2021
             });
 
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "B",
              "ZF",
@@ -658,7 +777,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "C",
              "ZF",
@@ -674,7 +793,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "D",
              "ZF",
@@ -689,7 +808,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "E",
              "ZF",
@@ -705,7 +824,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "F",
              "ZF",
@@ -720,7 +839,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "G",
              "ZF",
@@ -738,7 +857,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "H",
              "ZF",
@@ -756,7 +875,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "I",
              "ZF",
@@ -770,7 +889,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "J",
              "ZF",
@@ -785,7 +904,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "K",
              "ZF",
@@ -801,7 +920,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "L",
              "ZF",
@@ -812,7 +931,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "M",
              "ZF",
@@ -825,7 +944,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "N",
              "ZF",
@@ -837,7 +956,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "O",
              "ZF",
@@ -854,7 +973,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "P",
              "ZF",
@@ -869,7 +988,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "Q",
              "ZF",
@@ -890,7 +1009,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "R",
              "ZF",
@@ -907,7 +1026,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "S",
              "ZF",
@@ -927,7 +1046,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "T",
              "ZF",
@@ -939,7 +1058,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "U",
              "ZF",
@@ -953,7 +1072,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "V",
              "ZF",
@@ -964,7 +1083,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "W",
              "ZF",
@@ -977,7 +1096,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "X",
              "ZF",
@@ -991,7 +1110,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "Y",
              "ZF",
@@ -1004,7 +1123,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "Z",
              "ZF",
@@ -1017,7 +1136,7 @@ namespace Elaborato_EdS_2021
             });
 
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "&",
              "ZF",
@@ -1034,7 +1153,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "'",
              "ZF",
@@ -1045,7 +1164,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "@",
              "ZF",
@@ -1065,7 +1184,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "\\",
              "ZF",
@@ -1075,7 +1194,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "}",
              "ZF",
@@ -1090,7 +1209,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              ")",
              "ZF",
@@ -1102,7 +1221,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "]",
              "ZF",
@@ -1114,7 +1233,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              ":",
              "ZF",
@@ -1126,7 +1245,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              ",",
              "ZF",
@@ -1136,7 +1255,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "$",
              "ZF",
@@ -1160,7 +1279,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "\"",
              "ZF",
@@ -1174,7 +1293,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "=",
              "ZF",
@@ -1188,7 +1307,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "!",
              "ZF",
@@ -1201,7 +1320,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "/",
              "ZF",
@@ -1211,7 +1330,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              ">",
              "ZF",
@@ -1222,7 +1341,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "#",
              "ZF",
@@ -1244,7 +1363,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "<",
              "ZF",
@@ -1255,7 +1374,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "-",
              "ZF",
@@ -1265,7 +1384,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "{",
              "ZF",
@@ -1280,7 +1399,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "(",
              "ZF",
@@ -1292,7 +1411,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "[",
              "ZF",
@@ -1304,7 +1423,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "|",
              "ZF",
@@ -1318,7 +1437,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "%",
              "ZF",
@@ -1342,7 +1461,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "+",
              "ZF",
@@ -1356,7 +1475,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "?",
              "ZF",
@@ -1374,7 +1493,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "^",
              "ZF",
@@ -1385,7 +1504,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              ";",
              "ZF",
@@ -1398,7 +1517,7 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
 
-            GLista.Add(new List<string>
+            GCodeLista.Add(new List<string>
             {
              "*",
              "ZF",
@@ -1416,128 +1535,42 @@ namespace Elaborato_EdS_2021
              "ZF"
             });
         }
-        private void EscitoolStripMenuItem_Click(object sender, EventArgs e)
+
+        public void getcoords(string thestring)
         {
-            Close();
-        }
-
-        //GENERAZIONE GCODE
-        private void GeneraGcodebutton1_Click(object sender, EventArgs e)
-        {
-            OffsetX = 0; //reset dell'offset orizzontale
-
-            //CONTROLLI
-
-            try //Fly Altezza
+            
+            string nstring = thestring.Trim().ToUpper();
+            int Xpos = nstring.LastIndexOf("X"); 
+            int Ypos = nstring.LastIndexOf("Y"); 
+            if ((Xpos == -1) | (Ypos == -1))
             {
-                FlyAltezza = Convert.ToSingle(FlyAltezzatextBox2.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Valore non valido in Fly Altezza", "errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try //Profondità di taglio
-            {
-                ProfonditàAltezza = Convert.ToSingle(ProfonditatextBox3.Text);
-            }
-            catch
-            {
-                MessageBox.Show("Valore non valido in Profondità di taglio", "errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try //Font Altezza
-            {
-                FontAltezza = Convert.ToSingle(FontAltezza);
-            }
-            catch
-            {
-                MessageBox.Show("Valore non valido in Font Altezza", "errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (FlyAltezza > 0.5) FlyAltezzaStr = "Z" + FlyAltezza.ToString("0.000");
-            else FlyAltezzaStr = "Z5.0";
-
-            ScaleFactor = FontAltezza / 18.0f;
-
-            if (Testotxt.Text != "") //controlla se l'utente ha inserito il testo
-            {
-                StringBuilder sb = new StringBuilder();
-
-                List<string> Gcode;
-                Gcode = new List<string>(); //Lista Gcode linee File in Output
-
-                sb.AppendLine("G21"); //unità di misura in mm
-                sb.AppendLine("F1000"); //Feedrate predefinita. Velocità di avanzamento
-
-                string Testo = Testotxt.Text; //prendo il testo da convertire inserito dall'utente
-
-                foreach(char carattere in Testo)
-                {
-                    //Faccio passare ogni singolo carattere del testo per poi trovare il suo GCode all'interno della lista
-                    string tempstringa = GLista[1][3];
-
-                    foreach(List<string> GcodeListaCaratteri in GLista) 
-                    {
-                        if(GcodeListaCaratteri[0][0] == carattere) //se il primo carattere del testo corrisponde al primo elemento della lista di liste
-                        {
-                            //Elaboro la lista GCODE corrispondente al carattere
-                            int NItemsLista = GcodeListaCaratteri.Count(); //prendo il numero di elementi della lista
-
-                            for(int i = 0; i < NItemsLista; i++)
-                            {
-                                string elem = GcodeListaCaratteri[i]; // prendo ogni elemento della lista
-
-                                if(elem.Trim() == "ZF") //quando l'elemento è ZF inserisco Fly Altezza specificata dall'utente
-                                {
-                                    sb.AppendLine(FlyAltezzaStr);
-                                }
-                                if(elem.Trim() == "ZC") //quando l'elemento è ZC inserisco Profondità
-                                {
-                                    sb.AppendLine(ProfonditàAltezzaStr);
-                                }
-                                else //l'elemento corrisponde a coordinate GCODE
-                                {
-                                    CoordinateDaStringa(elem); //converto XY coordinata e prendo i valori X e Y
-
-                                    NewX = GcodeX + OffsetX;
-                                    NewY = GcodeY;
-
-                                    //dimensione Font richiede scaling delle due coordinate X e Y
-                                    NewX = NewX * ScaleFactor;
-                                    NewY = NewY * ScaleFactor;
-
-                                    //genero stringa con le due coordinate
-                                    string NewCoordinataX = NewX.ToString("0.000");
-                                    string NewCoordinataY = NewY.ToString("0.000");
-                                    string stringaCoordinate = "X" + NewCoordinataX + " Y" + NewCoordinataY;
-                                    sb.AppendLine(stringaCoordinate);
-                                }
-                            }
-
-                            OffsetX = OffsetX + 18; // incremento offset X per il movimento del prossimo carattere
-                        }
-                    }
-                
-                }
-
-                sb.Replace(',', '.'); //sostituisco le istruzioni GCODE con le virgole in punti. Es: X4,178-->X4.178
-                Gcode.Add(sb.ToString());
-                saveFileDialog1.FileName = Testotxt.Text + "_GCODE.nc";
-                File.WriteAllLines(saveFileDialog1.FileName, Gcode);
-                
+                MessageBox.Show("Errore!");
+                Application.Exit();
             }
             else
             {
-                MessageBox.Show("Testo non inserito!");
+                
+                if (Ypos > Xpos) 
+                {
+                    string theYbit = nstring.Substring(Ypos + 1);   
+                    string theXbit = nstring.Substring(1, Ypos - 1).Trim();   
+                    GcodeX = (float)Convert.ToDouble(theXbit);
+                    GcodeY = Convert.ToSingle(theYbit);
+                    
+                }
+
             }
+
+            
         }
 
         private void FormTesto_Load(object sender, EventArgs e)
         {
-            ListaGcodeCaratteri();
+
         }
     }
+
+
 
 
 }

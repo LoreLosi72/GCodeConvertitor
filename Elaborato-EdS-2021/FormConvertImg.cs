@@ -102,7 +102,7 @@ namespace Elaborato_EdS_2021
             Text = "Immagine in GCODE per stampante 3D";
             StatotoolStripStatusLabel.Text = "Pronto";
             //LoadSettings();
-            //VisualZoomtoolStripMenuItem1_Click(this, null); //settaggio iniziale dello zoom dell'immagine.
+            VisualZoomtoolStripMenuItem1_Click(this, null); //settaggio iniziale dello zoom dell'immagine.
         }
 
         //INTERPOLAZIONE OK
@@ -199,9 +199,8 @@ namespace Elaborato_EdS_2021
                 ySize = Convert.ToInt32(float.Parse(AltezzatextBox2.Text, CultureInfo.InvariantCulture.NumberFormat) / float.Parse(RisoluzionetextBox3.Text, CultureInfo.InvariantCulture.NumberFormat));
                 ImgRev = ResizeImg(ImgOrig, xSize, ySize); //applicazione del ridimensionamento all'immagine
                 ImgRev = BalanceImg(ImgRev, LuminositàTrackBar.Value, ContrastoTrackBar.Value, GammaTrackBar.Value); //applicazione del bilanciamento tramite parametri (lum,contrasto,gamma) inseriti dall'utente. Applicazione all'immagine ridimensionata
-                MDcomboBox.Text = "GrayScale 8 bit";
                 ImgpictureBox1.Image = ImgRev; //display dell'immagine "aggiustata"
-                //VisualZoomtoolStripMenuItem1_Click(this, null); //set zoom
+                VisualZoomtoolStripMenuItem1_Click(this, null); //set zoom
             }
             catch (Exception e)
             {
@@ -573,7 +572,7 @@ namespace Elaborato_EdS_2021
 
             //Generazione GCODE per scanning orizzontale
 
-            if (IncisionecomboBox.Text == "scansione orizzontale") //verifico se l'utente ha scelto la scansione orizzontale
+            if (Scansionelabel.Text=="Scansione Orizzontale") //verifico se l'utente ha scelto la scansione orizzontale
             {
                 // comando G0: movimento rapido lineare, in questo caso movimento rapido nell'angolo in alto a sinistra. Quindi movimento 0 mm sull'asse X e movimento altezza img * risoluzione mm sull'asse Y
                 line = "G0X0Y" + string.Format(CultureInfo.InvariantCulture.NumberFormat, "{0:0.###}", ImgRev.Height * Convert.ToSingle(RisoluzionetextBox3.Text, CultureInfo.InvariantCulture.NumberFormat));
