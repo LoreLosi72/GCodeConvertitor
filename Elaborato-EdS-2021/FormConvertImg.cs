@@ -79,9 +79,9 @@ namespace Elaborato_EdS_2021
 
         //AUTO-ZOOM IMMAGINE OK
     
-        private void VisualZoomtoolStripMenuItem1_Click(object sender, EventArgs e) //Auto zoom dell'immagine all'avvio del programma. L'auto zoom dell'impostazione visualizza è predefinito poi è possibile disattivarlo
+        /*private void AutoZoomtoolStripMenuItem1_Click(object sender, EventArgs e) //Auto zoom dell'immagine all'avvio del programma. L'auto zoom dell'impostazione visualizza è predefinito poi è possibile disattivarlo
         {
-            if (VisualZoomtoolStripMenuItem1.Checked)
+            if (AutoZoomtoolStripMenuItem2.Checked)
             {
                 ImgpictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 ImgpictureBox1.Width = panel1.Width;
@@ -95,14 +95,14 @@ namespace Elaborato_EdS_2021
                 if (ImgpictureBox1.Width > panel1.Width) ImgpictureBox1.Left = 0; else ImgpictureBox1.Left = (panel1.Width / 2) - (ImgpictureBox1.Width / 2);
                 if (ImgpictureBox1.Height > panel1.Height) ImgpictureBox1.Top = 0; else ImgpictureBox1.Top = (panel1.Height / 2) - (ImgpictureBox1.Height / 2);
             }
-        }
+        }*/
 
         private void FormConvertImg_Load(object sender, EventArgs e) //operazioni di partenza al caricamento del form
         {
             Text = "Immagine in GCODE per stampante 3D";
             StatotoolStripStatusLabel.Text = "Pronto";
             //LoadSettings();
-            VisualZoomtoolStripMenuItem1_Click(this, null); //settaggio iniziale dello zoom dell'immagine.
+            //AutoZoomtoolStripMenuItem1_Click(this, null); //settaggio iniziale dello zoom dell'immagine.
         }
 
         //INTERPOLAZIONE OK
@@ -200,7 +200,7 @@ namespace Elaborato_EdS_2021
                 ImgRev = ResizeImg(ImgOrig, xSize, ySize); //applicazione del ridimensionamento all'immagine
                 ImgRev = BalanceImg(ImgRev, LuminositàTrackBar.Value, ContrastoTrackBar.Value, GammaTrackBar.Value); //applicazione del bilanciamento tramite parametri (lum,contrasto,gamma) inseriti dall'utente. Applicazione all'immagine ridimensionata
                 ImgpictureBox1.Image = ImgRev; //display dell'immagine "aggiustata"
-                VisualZoomtoolStripMenuItem1_Click(this, null); //set zoom
+                //AutoZoomtoolStripMenuItem1_Click(this, null); //set zoom
             }
             catch (Exception e)
             {
@@ -209,15 +209,15 @@ namespace Elaborato_EdS_2021
         }
 
         //OK
-        private void VisualOriginalebutton_MouseUp(object sender, MouseEventArgs e) //rivisualizza l'immagine corrente modificata
+        /*private void VisualOriginalebutton_MouseUp(object sender, MouseEventArgs e) //rivisualizza l'immagine corrente modificata
         {
             if (ImgRev == null) return; //se non c'è l'immagine la funzione non fa niente
             if (!File.Exists(openFileDialog1.FileName)) return;
             ImgpictureBox1.Image = ImgRev; //immagine revisionata, modificata dall'utente attraverso ridimensionamento e bilanciamneto
-        }
+        }*/
 
         //OK
-        private void VisualOriginalebutton_MouseDown(object sender, MouseEventArgs e) //preview dell'immagine originale inserita
+        /*private void VisualOriginalebutton_MouseDown(object sender, MouseEventArgs e) //preview dell'immagine originale inserita
         {
             if (ImgRev == null) return; //se non c'è l'immagine, la funzione non fa niente
             if (!File.Exists(openFileDialog1.FileName)) return;
@@ -225,7 +225,7 @@ namespace Elaborato_EdS_2021
             Refresh();
             ImgpictureBox1.Image = ImgOrig; //immagine originale
             StatotoolStripStatusLabel.Text = "Immagine Pronta";
-        }
+        }*/
 
         //OK
         private bool checkDigitFloat(char ch) //funzione che controlla se il carattere inserito è un float valido, altrimenti mostra messaggio di errore.
@@ -554,10 +554,6 @@ namespace Elaborato_EdS_2021
             lastY = -1;
             lastSZ = -1;
 
-            foreach(string s in PreGcoderichTextBox.Lines) //Aggiungo il PreGcode inserito dall'utente
-            {
-                LineeFile.Add(s);
-            }
             line = "G90\r"; //comando che ci permette di utilizzare coordinate assolute 
             LineeFile.Add(line);
 
@@ -673,13 +669,6 @@ namespace Elaborato_EdS_2021
             line = "M5\r";
             LineeFile.Add(line);
 
-            //Aggiungo il codice GCODE alla fine
-            foreach (string s in FooterichTextBox1.Lines)
-            {
-                LineeFile.Add(s);
-            }
-
-               
             StatotoolStripStatusLabel.Text = "Salvataggio del file in corso....";
             Refresh();
 

@@ -32,8 +32,6 @@ namespace Elaborato_EdS_2021
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.FiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileApritoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.VisualtoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.VisualZoomtoolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.EscitoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatotoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -56,13 +54,10 @@ namespace Elaborato_EdS_2021
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.VisualOriginalebutton = new System.Windows.Forms.Button();
             this.GCodetabPage1 = new System.Windows.Forms.TabPage();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.PreGcoderichTextBox = new System.Windows.Forms.RichTextBox();
-            this.FooterichTextBox1 = new System.Windows.Forms.RichTextBox();
             this.GCODEbutton = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.Scansionelabel = new System.Windows.Forms.Label();
             this.IncisioneBordocheckBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.ZradioButton2 = new System.Windows.Forms.RadioButton();
@@ -79,7 +74,8 @@ namespace Elaborato_EdS_2021
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.Scansionelabel = new System.Windows.Forms.Label();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoZoomtoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -89,7 +85,6 @@ namespace Elaborato_EdS_2021
             ((System.ComponentModel.ISupportInitialize)(this.GammaTrackBar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.GCodetabPage1.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -103,11 +98,11 @@ namespace Elaborato_EdS_2021
             this.menuStrip1.BackColor = System.Drawing.Color.DarkOrange;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FiletoolStripMenuItem,
-            this.VisualtoolStripMenuItem,
-            this.EscitoolStripMenuItem});
+            this.EscitoolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1476, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1577, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -129,28 +124,6 @@ namespace Elaborato_EdS_2021
             this.FileApritoolStripMenuItem.Text = "Apri File";
             this.FileApritoolStripMenuItem.Click += new System.EventHandler(this.FileApritoolStripMenuItem_Click);
             // 
-            // VisualtoolStripMenuItem
-            // 
-            this.VisualtoolStripMenuItem.Checked = true;
-            this.VisualtoolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.VisualtoolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.VisualZoomtoolStripMenuItem1});
-            this.VisualtoolStripMenuItem.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VisualtoolStripMenuItem.Name = "VisualtoolStripMenuItem";
-            this.VisualtoolStripMenuItem.Size = new System.Drawing.Size(104, 29);
-            this.VisualtoolStripMenuItem.Text = "Visualizza";
-            // 
-            // VisualZoomtoolStripMenuItem1
-            // 
-            this.VisualZoomtoolStripMenuItem1.BackColor = System.Drawing.Color.DarkOrange;
-            this.VisualZoomtoolStripMenuItem1.Checked = true;
-            this.VisualZoomtoolStripMenuItem1.CheckOnClick = true;
-            this.VisualZoomtoolStripMenuItem1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.VisualZoomtoolStripMenuItem1.Name = "VisualZoomtoolStripMenuItem1";
-            this.VisualZoomtoolStripMenuItem1.Size = new System.Drawing.Size(172, 30);
-            this.VisualZoomtoolStripMenuItem1.Text = "AutoZoom";
-            this.VisualZoomtoolStripMenuItem1.Click += new System.EventHandler(this.VisualZoomtoolStripMenuItem1_Click);
-            // 
             // EscitoolStripMenuItem
             // 
             this.EscitoolStripMenuItem.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -166,7 +139,7 @@ namespace Elaborato_EdS_2021
             this.StatotoolStripStatusLabel});
             this.statusStrip1.Location = new System.Drawing.Point(0, 725);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1476, 30);
+            this.statusStrip1.Size = new System.Drawing.Size(1577, 30);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -185,7 +158,7 @@ namespace Elaborato_EdS_2021
             this.tabControl1.Location = new System.Drawing.Point(0, 41);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(760, 676);
+            this.tabControl1.Size = new System.Drawing.Size(445, 676);
             this.tabControl1.TabIndex = 3;
             // 
             // ImgtabPage
@@ -201,11 +174,10 @@ namespace Elaborato_EdS_2021
             this.ImgtabPage.Controls.Add(this.label3);
             this.ImgtabPage.Controls.Add(this.label2);
             this.ImgtabPage.Controls.Add(this.label1);
-            this.ImgtabPage.Controls.Add(this.VisualOriginalebutton);
             this.ImgtabPage.Location = new System.Drawing.Point(4, 34);
             this.ImgtabPage.Name = "ImgtabPage";
             this.ImgtabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ImgtabPage.Size = new System.Drawing.Size(752, 638);
+            this.ImgtabPage.Size = new System.Drawing.Size(437, 638);
             this.ImgtabPage.TabIndex = 0;
             this.ImgtabPage.Text = "Immagine";
             // 
@@ -216,7 +188,7 @@ namespace Elaborato_EdS_2021
             this.LuminositàTrackBar.Maximum = 127;
             this.LuminositàTrackBar.Minimum = -127;
             this.LuminositàTrackBar.Name = "LuminositàTrackBar";
-            this.LuminositàTrackBar.Size = new System.Drawing.Size(740, 45);
+            this.LuminositàTrackBar.Size = new System.Drawing.Size(424, 45);
             this.LuminositàTrackBar.TabIndex = 0;
             this.LuminositàTrackBar.TickFrequency = 10;
             this.LuminositàTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -229,7 +201,7 @@ namespace Elaborato_EdS_2021
             this.ContrastoTrackBar.Maximum = 127;
             this.ContrastoTrackBar.Minimum = -127;
             this.ContrastoTrackBar.Name = "ContrastoTrackBar";
-            this.ContrastoTrackBar.Size = new System.Drawing.Size(737, 45);
+            this.ContrastoTrackBar.Size = new System.Drawing.Size(421, 45);
             this.ContrastoTrackBar.TabIndex = 1;
             this.ContrastoTrackBar.TickFrequency = 10;
             this.ContrastoTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -242,7 +214,7 @@ namespace Elaborato_EdS_2021
             this.GammaTrackBar.Maximum = 500;
             this.GammaTrackBar.Minimum = 1;
             this.GammaTrackBar.Name = "GammaTrackBar";
-            this.GammaTrackBar.Size = new System.Drawing.Size(735, 45);
+            this.GammaTrackBar.Size = new System.Drawing.Size(419, 45);
             this.GammaTrackBar.TabIndex = 2;
             this.GammaTrackBar.TickFrequency = 22;
             this.GammaTrackBar.TickStyle = System.Windows.Forms.TickStyle.Both;
@@ -258,9 +230,9 @@ namespace Elaborato_EdS_2021
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.Larglabel);
-            this.groupBox1.Location = new System.Drawing.Point(9, 354);
+            this.groupBox1.Location = new System.Drawing.Point(11, 359);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(737, 93);
+            this.groupBox1.Size = new System.Drawing.Size(421, 221);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Output (mm)";
@@ -270,7 +242,7 @@ namespace Elaborato_EdS_2021
             this.RatiocheckBox.AutoSize = true;
             this.RatiocheckBox.Checked = true;
             this.RatiocheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.RatiocheckBox.Location = new System.Drawing.Point(646, 46);
+            this.RatiocheckBox.Location = new System.Drawing.Point(245, 169);
             this.RatiocheckBox.Name = "RatiocheckBox";
             this.RatiocheckBox.Size = new System.Drawing.Size(74, 29);
             this.RatiocheckBox.TabIndex = 17;
@@ -281,7 +253,7 @@ namespace Elaborato_EdS_2021
             // RisoluzionetextBox3
             // 
             this.RisoluzionetextBox3.BackColor = System.Drawing.Color.Orange;
-            this.RisoluzionetextBox3.Location = new System.Drawing.Point(533, 39);
+            this.RisoluzionetextBox3.Location = new System.Drawing.Point(125, 167);
             this.RisoluzionetextBox3.Name = "RisoluzionetextBox3";
             this.RisoluzionetextBox3.Size = new System.Drawing.Size(75, 33);
             this.RisoluzionetextBox3.TabIndex = 16;
@@ -294,7 +266,7 @@ namespace Elaborato_EdS_2021
             // AltezzatextBox2
             // 
             this.AltezzatextBox2.BackColor = System.Drawing.Color.Orange;
-            this.AltezzatextBox2.Location = new System.Drawing.Point(301, 39);
+            this.AltezzatextBox2.Location = new System.Drawing.Point(125, 99);
             this.AltezzatextBox2.Name = "AltezzatextBox2";
             this.AltezzatextBox2.Size = new System.Drawing.Size(75, 33);
             this.AltezzatextBox2.TabIndex = 15;
@@ -307,7 +279,7 @@ namespace Elaborato_EdS_2021
             // LarghezzatextBox
             // 
             this.LarghezzatextBox.BackColor = System.Drawing.Color.Orange;
-            this.LarghezzatextBox.Location = new System.Drawing.Point(114, 39);
+            this.LarghezzatextBox.Location = new System.Drawing.Point(125, 39);
             this.LarghezzatextBox.Name = "LarghezzatextBox";
             this.LarghezzatextBox.Size = new System.Drawing.Size(75, 33);
             this.LarghezzatextBox.TabIndex = 11;
@@ -320,7 +292,7 @@ namespace Elaborato_EdS_2021
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(414, 47);
+            this.label5.Location = new System.Drawing.Point(6, 170);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(113, 25);
             this.label5.TabIndex = 13;
@@ -329,7 +301,7 @@ namespace Elaborato_EdS_2021
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(218, 47);
+            this.label4.Location = new System.Drawing.Point(6, 103);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 25);
             this.label4.TabIndex = 12;
@@ -404,24 +376,9 @@ namespace Elaborato_EdS_2021
             this.label1.TabIndex = 4;
             this.label1.Text = "Luminosità:";
             // 
-            // VisualOriginalebutton
-            // 
-            this.VisualOriginalebutton.BackColor = System.Drawing.Color.Orange;
-            this.VisualOriginalebutton.ForeColor = System.Drawing.Color.Black;
-            this.VisualOriginalebutton.Location = new System.Drawing.Point(232, 511);
-            this.VisualOriginalebutton.Name = "VisualOriginalebutton";
-            this.VisualOriginalebutton.Size = new System.Drawing.Size(237, 63);
-            this.VisualOriginalebutton.TabIndex = 0;
-            this.VisualOriginalebutton.Text = "Visualizza Immagine Originale";
-            this.VisualOriginalebutton.UseVisualStyleBackColor = false;
-            this.VisualOriginalebutton.Click += new System.EventHandler(this.VisualOriginalebutton_Click);
-            this.VisualOriginalebutton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.VisualOriginalebutton_MouseDown);
-            this.VisualOriginalebutton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.VisualOriginalebutton_MouseUp);
-            // 
             // GCodetabPage1
             // 
             this.GCodetabPage1.BackColor = System.Drawing.Color.Orange;
-            this.GCodetabPage1.Controls.Add(this.groupBox7);
             this.GCodetabPage1.Controls.Add(this.GCODEbutton);
             this.GCodetabPage1.Controls.Add(this.groupBox5);
             this.GCodetabPage1.Controls.Add(this.groupBox4);
@@ -430,46 +387,19 @@ namespace Elaborato_EdS_2021
             this.GCodetabPage1.Location = new System.Drawing.Point(4, 34);
             this.GCodetabPage1.Name = "GCodetabPage1";
             this.GCodetabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.GCodetabPage1.Size = new System.Drawing.Size(752, 638);
+            this.GCodetabPage1.Size = new System.Drawing.Size(437, 638);
             this.GCodetabPage1.TabIndex = 2;
             this.GCodetabPage1.Text = "GCode";
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.PreGcoderichTextBox);
-            this.groupBox7.Controls.Add(this.FooterichTextBox1);
-            this.groupBox7.Location = new System.Drawing.Point(445, 7);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(301, 483);
-            this.groupBox7.TabIndex = 8;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Gcode";
-            // 
-            // PreGcoderichTextBox
-            // 
-            this.PreGcoderichTextBox.Location = new System.Drawing.Point(6, 88);
-            this.PreGcoderichTextBox.Name = "PreGcoderichTextBox";
-            this.PreGcoderichTextBox.Size = new System.Drawing.Size(289, 140);
-            this.PreGcoderichTextBox.TabIndex = 1;
-            this.PreGcoderichTextBox.Text = "(Header)\nG0 X0 Y0\n(Header end)";
-            // 
-            // FooterichTextBox1
-            // 
-            this.FooterichTextBox1.Location = new System.Drawing.Point(6, 295);
-            this.FooterichTextBox1.Name = "FooterichTextBox1";
-            this.FooterichTextBox1.Size = new System.Drawing.Size(289, 140);
-            this.FooterichTextBox1.TabIndex = 0;
-            this.FooterichTextBox1.Text = "(Footer)\nG0 X0 Y0\n(Footer end)";
-            // 
             // GCODEbutton
             // 
-            this.GCODEbutton.BackColor = System.Drawing.Color.Orange;
-            this.GCODEbutton.Location = new System.Drawing.Point(260, 528);
+            this.GCODEbutton.BackColor = System.Drawing.Color.DarkOrange;
+            this.GCODEbutton.Location = new System.Drawing.Point(92, 530);
             this.GCODEbutton.Name = "GCODEbutton";
             this.GCODEbutton.Size = new System.Drawing.Size(201, 63);
             this.GCODEbutton.TabIndex = 7;
             this.GCODEbutton.Text = "Genera File";
-            this.GCODEbutton.UseVisualStyleBackColor = true;
+            this.GCODEbutton.UseVisualStyleBackColor = false;
             this.GCODEbutton.Click += new System.EventHandler(this.GCODEbutton_Click);
             // 
             // groupBox5
@@ -482,6 +412,15 @@ namespace Elaborato_EdS_2021
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Metodo di Incisione";
+            // 
+            // Scansionelabel
+            // 
+            this.Scansionelabel.AutoSize = true;
+            this.Scansionelabel.Location = new System.Drawing.Point(14, 46);
+            this.Scansionelabel.Name = "Scansionelabel";
+            this.Scansionelabel.Size = new System.Drawing.Size(199, 25);
+            this.Scansionelabel.TabIndex = 2;
+            this.Scansionelabel.Text = "Scansione Orizzontale";
             // 
             // IncisioneBordocheckBox1
             // 
@@ -509,7 +448,7 @@ namespace Elaborato_EdS_2021
             // ZradioButton2
             // 
             this.ZradioButton2.AutoSize = true;
-            this.ZradioButton2.Location = new System.Drawing.Point(86, 44);
+            this.ZradioButton2.Location = new System.Drawing.Point(97, 44);
             this.ZradioButton2.Name = "ZradioButton2";
             this.ZradioButton2.Size = new System.Drawing.Size(41, 29);
             this.ZradioButton2.TabIndex = 1;
@@ -542,7 +481,7 @@ namespace Elaborato_EdS_2021
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(133, 47);
+            this.label8.Location = new System.Drawing.Point(133, 52);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 25);
             this.label8.TabIndex = 4;
@@ -551,7 +490,7 @@ namespace Elaborato_EdS_2021
             // FeedRatetextBox
             // 
             this.FeedRatetextBox.BackColor = System.Drawing.Color.Orange;
-            this.FeedRatetextBox.Location = new System.Drawing.Point(22, 44);
+            this.FeedRatetextBox.Location = new System.Drawing.Point(19, 44);
             this.FeedRatetextBox.Name = "FeedRatetextBox";
             this.FeedRatetextBox.Size = new System.Drawing.Size(105, 33);
             this.FeedRatetextBox.TabIndex = 2;
@@ -620,7 +559,7 @@ namespace Elaborato_EdS_2021
             this.ImgpictureBox1.InitialImage = null;
             this.ImgpictureBox1.Location = new System.Drawing.Point(0, 0);
             this.ImgpictureBox1.Name = "ImgpictureBox1";
-            this.ImgpictureBox1.Size = new System.Drawing.Size(683, 642);
+            this.ImgpictureBox1.Size = new System.Drawing.Size(1117, 642);
             this.ImgpictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.ImgpictureBox1.TabIndex = 4;
             this.ImgpictureBox1.TabStop = false;
@@ -628,9 +567,9 @@ namespace Elaborato_EdS_2021
             // panel1
             // 
             this.panel1.Controls.Add(this.ImgpictureBox1);
-            this.panel1.Location = new System.Drawing.Point(781, 75);
+            this.panel1.Location = new System.Drawing.Point(451, 75);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(683, 642);
+            this.panel1.Size = new System.Drawing.Size(1117, 642);
             this.panel1.TabIndex = 6;
             // 
             // openFileDialog1
@@ -639,29 +578,39 @@ namespace Elaborato_EdS_2021
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.FileName = "file.nc";
+            this.saveFileDialog1.FileName = "ImmagineGCode.nc";
             this.saveFileDialog1.Filter = "G-Code Files(*.CNC;*.NC;*.TAP;*.TXT)|*.CNC;*.NC;*.TAP;*.TXT|All files (*.*)|*.*";
             // 
-            // Scansionelabel
+            // toolStripMenuItem1
             // 
-            this.Scansionelabel.AutoSize = true;
-            this.Scansionelabel.Location = new System.Drawing.Point(17, 46);
-            this.Scansionelabel.Name = "Scansionelabel";
-            this.Scansionelabel.Size = new System.Drawing.Size(199, 25);
-            this.Scansionelabel.TabIndex = 2;
-            this.Scansionelabel.Text = "Scansione Orizzontale";
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AutoZoomtoolStripMenuItem2});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(104, 29);
+            this.toolStripMenuItem1.Text = "Visualizza";
+            // 
+            // AutoZoomtoolStripMenuItem2
+            // 
+            this.AutoZoomtoolStripMenuItem2.Checked = true;
+            this.AutoZoomtoolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoZoomtoolStripMenuItem2.Name = "AutoZoomtoolStripMenuItem2";
+            this.AutoZoomtoolStripMenuItem2.Size = new System.Drawing.Size(180, 30);
+            this.AutoZoomtoolStripMenuItem2.Text = "AutoZoom";
             // 
             // FormConvertImg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Orange;
-            this.ClientSize = new System.Drawing.Size(1476, 755);
+            this.ClientSize = new System.Drawing.Size(1577, 755);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormConvertImg";
             this.Text = "FormConvertImg";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConvertImg_FormClosing);
@@ -679,7 +628,6 @@ namespace Elaborato_EdS_2021
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.GCodetabPage1.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -700,7 +648,6 @@ namespace Elaborato_EdS_2021
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem FiletoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FileApritoolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem VisualtoolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EscitoolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StatotoolStripStatusLabel;
@@ -721,8 +668,6 @@ namespace Elaborato_EdS_2021
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button VisualOriginalebutton;
-        private System.Windows.Forms.ToolStripMenuItem VisualZoomtoolStripMenuItem1;
         private System.Windows.Forms.TrackBar LuminositàTrackBar;
         private System.Windows.Forms.TrackBar ContrastoTrackBar;
         private System.Windows.Forms.TrackBar GammaTrackBar;
@@ -744,9 +689,8 @@ namespace Elaborato_EdS_2021
         private System.Windows.Forms.CheckBox IncisioneBordocheckBox1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.RichTextBox PreGcoderichTextBox;
-        private System.Windows.Forms.RichTextBox FooterichTextBox1;
         private System.Windows.Forms.Label Scansionelabel;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem AutoZoomtoolStripMenuItem2;
     }
 }

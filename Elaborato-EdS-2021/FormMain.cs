@@ -30,7 +30,7 @@ namespace Elaborato_EdS_2021
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-
+            Text = "Menù Iniziale";
         }
 
         private void Testobutton_Click(object sender, EventArgs e)

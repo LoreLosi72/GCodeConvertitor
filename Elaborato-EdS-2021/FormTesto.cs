@@ -1566,7 +1566,7 @@ namespace Elaborato_EdS_2021
 
         private void FormTesto_Load(object sender, EventArgs e)
         {
-
+            Text = "Testo in GCode per macchine utensili";
         }
     }
 
