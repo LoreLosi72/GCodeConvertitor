@@ -33,6 +33,8 @@ namespace Elaborato_EdS_2021
             this.FiletoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileApritoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EscitoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.AutoZoomtoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatotoolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -74,8 +76,6 @@ namespace Elaborato_EdS_2021
             this.panel1 = new System.Windows.Forms.Panel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.AutoZoomtoolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -131,6 +131,23 @@ namespace Elaborato_EdS_2021
             this.EscitoolStripMenuItem.Size = new System.Drawing.Size(55, 29);
             this.EscitoolStripMenuItem.Text = "Esci";
             this.EscitoolStripMenuItem.Click += new System.EventHandler(this.EscitoolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AutoZoomtoolStripMenuItem2});
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(104, 29);
+            this.toolStripMenuItem1.Text = "Visualizza";
+            // 
+            // AutoZoomtoolStripMenuItem2
+            // 
+            this.AutoZoomtoolStripMenuItem2.Checked = true;
+            this.AutoZoomtoolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.AutoZoomtoolStripMenuItem2.Name = "AutoZoomtoolStripMenuItem2";
+            this.AutoZoomtoolStripMenuItem2.Size = new System.Drawing.Size(172, 30);
+            this.AutoZoomtoolStripMenuItem2.Text = "AutoZoom";
             // 
             // statusStrip1
             // 
@@ -581,23 +598,6 @@ namespace Elaborato_EdS_2021
             this.saveFileDialog1.FileName = "ImmagineGCode.nc";
             this.saveFileDialog1.Filter = "G-Code Files(*.CNC;*.NC;*.TAP;*.TXT)|*.CNC;*.NC;*.TAP;*.TXT|All files (*.*)|*.*";
             // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AutoZoomtoolStripMenuItem2});
-            this.toolStripMenuItem1.Font = new System.Drawing.Font("Yu Gothic UI Semilight", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(104, 29);
-            this.toolStripMenuItem1.Text = "Visualizza";
-            // 
-            // AutoZoomtoolStripMenuItem2
-            // 
-            this.AutoZoomtoolStripMenuItem2.Checked = true;
-            this.AutoZoomtoolStripMenuItem2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.AutoZoomtoolStripMenuItem2.Name = "AutoZoomtoolStripMenuItem2";
-            this.AutoZoomtoolStripMenuItem2.Size = new System.Drawing.Size(180, 30);
-            this.AutoZoomtoolStripMenuItem2.Text = "AutoZoom";
-            // 
             // FormConvertImg
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,7 +610,6 @@ namespace Elaborato_EdS_2021
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FormConvertImg";
             this.Text = "FormConvertImg";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormConvertImg_FormClosing);

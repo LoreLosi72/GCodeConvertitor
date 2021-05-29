@@ -143,7 +143,7 @@ namespace Elaborato_EdS_2021
                                 }
                                 else
                                 {
-                                    getcoords(elem);
+                                    PrendiCoordinate(elem);
 
                                     NewX = GcodeX + OffsetX;
                                     NewY = GcodeY;
@@ -1536,13 +1536,13 @@ namespace Elaborato_EdS_2021
             });
         }
 
-        public void getcoords(string thestring)
+        public void PrendiCoordinate(string stringaCoordinate)
         {
             
-            string nstring = thestring.Trim().ToUpper();
-            int Xpos = nstring.LastIndexOf("X"); 
-            int Ypos = nstring.LastIndexOf("Y"); 
-            if ((Xpos == -1) | (Ypos == -1))
+            string Newstringa = stringaCoordinate.Trim().ToUpper(); //tolgo gli spazi dalla stringa contenente le coordinate
+            int Xpos = Newstringa.LastIndexOf("X"); //controllo se è presente la coordinata X e memorizzo la sua posizione
+            int Ypos = Newstringa.LastIndexOf("Y"); //controllo anche sulla Y
+            if ((Xpos == -1) | (Ypos == -1)) //se non sono presenti genero un errore
             {
                 MessageBox.Show("Errore!");
                 Application.Exit();
@@ -1550,11 +1550,11 @@ namespace Elaborato_EdS_2021
             else
             {
                 
-                if (Ypos > Xpos) 
+                if (Ypos > Xpos) //se la Y è dopo la X allora vado avanti
                 {
-                    string theYbit = nstring.Substring(Ypos + 1);   
-                    string theXbit = nstring.Substring(1, Ypos - 1).Trim();   
-                    GcodeX = (float)Convert.ToDouble(theXbit);
+                    string theYbit = Newstringa.Substring(Ypos + 1);   //prendo coordinate dopo la Y
+                    string theXbit = Newstringa.Substring(1, Ypos - 1).Trim();   //prendo coordinato dopo la X e prima della Y
+                    GcodeX = (float)Convert.ToDouble(theXbit); //converto in istruzioni GCode
                     GcodeY = Convert.ToSingle(theYbit);
                     
                 }
